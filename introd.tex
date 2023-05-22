@@ -1,0 +1,32 @@
+\addcontentsline{toc}{chapter}{Introdução}
+\chapter*{Introdução}
+
+Depois do reconhecimento da teoria de Fourier, do matemático e físico francês Jean-Baptiste Joseph Fourier (1768-1830), no ano 1811, sobre a solução e formulação do problema da condução do calor em uma barra de metal, o qual é modelado por uma equação diferencial parcial, surgiram novos problemas em decorrência do seu trabalho,  desde que se possa expressar uma função dada como uma série infinita de senos e cossenos.
+
+Dentre as áreas que se desenvolveram em decorrência do estudo de Fourier destacam-se Equações diferencias, Análise e Teoria dos Conjuntos.
+
+Existem diversas formulações da Equação de calor. Para determinar a distribuição de temperatura em um meio é necessário resolver a formulação correta. Esta solução vai depender das condições físicas existentes nas fronteiras do meio, isto é das condições de contorno. A Equação de difusão, e uma versão mais geral da Equação de calor.
+
+Na Referência \cite{BO}, mostra-se a solução particular da equação de condução de calor através do método de separação é dada por:
+\begin{equation}
+t = \vartheta \exp[-a k^2 \tau],
+\end{equation}
+onde $ \vartheta $ é a solução da equação diferencial:
+\begin{eqnarray*}
+\nabla^2 \vartheta + k^2 \vartheta = 0.
+\end{eqnarray*}
+No nosso caso $ \vartheta (x) $ é uma solução da \textbf{equação de Bessel}
+\begin{eqnarray}
+\vartheta '' (r) + \left( \frac{1}{r} \right) \vartheta '(r) + k^2 \vartheta (r) = 0.
+\label{46}
+\end{eqnarray}
+%As equações de Bessel são obtidas normalmente pelo método de Frobenius uma extensão do método da séries de potências, quando $p(r) $ e $q(r) $ não forem analíticas em $ r = 0 $, mas $rp(r) $ e $r^2q(r) $ são, possivelmente multiplicando as séries por um termo logarítmico ou por uma potência de expoente fracionaria. Caso $p(r) $ e $q(r) $ forem analíticas em $ r = 0 $, basta tomarmos $ s = 0 $ e utilizar a resolução descrita para o método de séries de potências.  
+
+
+Nesse contexto, este trabalho está dividido em quadro capítulos, sendo o primeiro alguns conteúdos, necessário ao entender sobre séries de potência e série de Frobenius. Tais como sequência numéricas, séries numéricas, somas parciais, convergência;
+
+No segundo capítulo capítulo, apresentaremos uma revisão sobre séries de potências, a idéia do método das séries de potências, definiremos a representação de uma função em forma de séries Taylor e por fim estudaremos as classificação dos Pontos do Domínio da EDO;
+
+No terceiro capítulo, nos propomos a estudar o chamado método de Frobenius, uma extensão do método das séries de potências. O método de Frobenius é uma importante ferramenta para encontrar soluções de equações diferencias ordinárias de segunda ordem na forma de série de Taylor, assim como a equação de Bessel, que é mencionada nos tópicos essenciais e de grande importância para o nosso problema. Estudaremos também uma segunda solução independente, obtida pela forma indicada na equação indicial associada a equação de Euler-Cauchy;
+
+O objetivo do capítulo quatro é encontrar uma função em função do tempo que seja a solução do nosso problema da difusão de calor ao longo de um cilindro infinito, com distribuição racial e temperatura prescrita.   

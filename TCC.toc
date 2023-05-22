@@ -1,0 +1,43 @@
+\select@language {brazil}
+\contentsline {chapter}{Introdu\c c\~ao}{11}{chapter*.7}
+\contentsline {chapter}{\numberline {1}Pr\'e-Requisito}{13}{chapter.1}
+\contentsline {section}{\numberline {1.1}Sequ\^encia Num\'ericas}{13}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Conceito de Limite de Sequ\^encias}{14}{subsection.1.1.1}
+\contentsline {subsubsection}{No\c c\~ao de Vizinhan\c ca}{14}{section*.9}
+\contentsline {subsection}{\numberline {1.1.2}Opera\c c\~ao com Limites}{15}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Sequ\^encias Mon\'otonas}{15}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}S\'eries Num\'ericas}{17}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Somas Parciais}{17}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Testes de Converg\^encia}{20}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Converg\^encia Absoluta e Condicional}{22}{subsection.1.2.3}
+\contentsline {chapter}{\numberline {2}M\'etodo das S\'eries de Pot\^encias}{24}{chapter.2}
+\contentsline {section}{\numberline {2.1}S\'eries de Pot\^encias}{24}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Representa\c c\~ao de Fun\c c\~oes como S\'eries de Pot\^encias}{25}{subsection.2.1.1}
+\contentsline {subsubsection}{ S\'eries de Taylor e de Maclaurin}{25}{section*.14}
+\contentsline {subsubsection}{Intervalo de Converg\^encia. Raio de Converg\^encia}{27}{section*.15}
+\contentsline {subsection}{\numberline {2.1.2}Opera\c c\~oes com S\'eries de Pot\^encias}{29}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Propriedades das S\'eries de Pot\^encias}{30}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}A Id\'eia do M\'etodo das S\'eries de Pot\^encias}{31}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Teorema da Exist\^encia de Solu\c c\~oes por S\'eries de Pot\^encias}{33}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Classifica\c c\~ao dos Pontos do Dom\IeC {\'\i }nio da EDO}{37}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Resolu\c c\~ao na Vizinhan\c ca de um Ponto Ordin\'ario}{38}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Resolu\c c\~ao na Vizinhan\c ca de um Ponto Singular Regular}{39}{subsection.2.2.4}
+\contentsline {subsubsection}{Solu\c c\~oes da Equa\c c\~ao Indicial}{40}{section*.17}
+\contentsline {chapter}{\numberline {3}M\'etodo de Frobenius}{43}{chapter.3}
+\contentsline {section}{\numberline {3.1}M\'etodo de Frobenius}{43}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Equa\c c\~ao Indicial, Indica\c c\~ao da Forma das Solu\c c\~oes}{44}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Caso de Ra\IeC {\'\i }zes Indicias Distintas n\~ao se Deferindo por um N\'umero Inteiro: $ s_{1} - s_{2} \not \in \mathbb {Z} $}{48}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Caso de Ra\IeC {\'\i }zes Indicias que Diferem por um Inteiro Positivo: $ s_1 - s_2 \in \mathbb {N} $}{51}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Caso de Ra\IeC {\'\i }zes Indicias Iguais: $ s = s_{1} = s_{2} $}{56}{subsection.3.1.4}
+\contentsline {section}{\numberline {3.2}Equa\c c\~ao de Bessel}{58}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Solu\c c\~ao para a Equa\c c\~ao de Bessel}{58}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Fun\c c\~ao de Bessel de Primeira Esp\'ecie $ J_\nu (x) $ para Inteiros N\~ao-Negativos}{60}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Fun\c c\~ao de Bessel de Primeira Esp\'ecie $ J_{\nu }(x) $ para Inteiros $ \nu \geq 0 $}{61}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Solu\c c\~ao Geral para Valores N\~ao-Inteiros de $\nu $. Solu\c c\~ao $J_{- \nu }$}{62}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Fun\c c\~ao de Bessel de Segunda Esp\'ecie $ Y_{\nu }(x)$}{64}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}Fun\c c\~ao de Bessel de Segunda Esp\'ecie $ Y_{0}(x)$}{64}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.7}Solu\c c\~ao Geral da Equa\c c\~ao de Bessel: Fun\c c\~oes de Bessel de Segunda Esp\'ecie $ Y_{n}(x)$}{68}{subsection.3.2.7}
+\contentsline {chapter}{\numberline {4}Cilindro Infinito}{71}{chapter.4}
+\contentsline {section}{\numberline {4.1}Problema Sim\'etrico}{71}{section.4.1}
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{80}{chapter.5}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{81}{chapter.5}

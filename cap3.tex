@@ -1,0 +1,298 @@
+\chapter{Cilindro Infinito}
+
+Se um cilindro de um comprimento l é consideravelmente maior do que o diâmetro $ 2R $, ( isto é, $ l / 2 R \gg 1 $ ), então, podemos considera-lo como um cilindro infinito, cujo comprimento é infinitamente maior em comparação com seu diâmetro.
+
+Deste modo, se a transferência de calor entre a superfície do cilindro e o ambiente ocorre uniformemente sobre toda a superfície, a sua temperatura vai depender apenas do tempo e do raio (problema simétrico).
+
+%==================================================================================
+\section{Problema Simétrico}
+%==================================================================================
+
+Dado um cilindro infinito consideremos uma distribuição radial de temperatura prescrita, isto é, na forma da função $ f (r) $, uma função que determina a temperatura inicial de um ponto qualquer no instante inicial $ t = 0 $ dentro do intervalo $ 0 < r < R $.
+
+Observe a seguinte figura:
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.1]{cilindro.png}
+\caption{Cilindro infinito com uma distribuição radial de temperatura prescrita, $ f (r) $, no intervalo $ 0 < r < R $ }
+\label{f3.4}
+\end{figure}
+\newpage
+De modo que, no instante de tempo inicial a superfície do cilindro é instantaneamente resfriada a alguma temperatura $ t_a $ que é mantida constante durante todo o processo de resfriamento. Logo, a distribuição de temperatura e a taxa de calor específico são descrito como uma função de tempo $t(r, \tau) $. Entretanto, para determinarmos a taxa de calor especifica e a distribuição de tempo, em um meio é necessário resolver a formulação correta da equação de calor.
+
+No nosso caso, ao longo de um cilindro infinito, a equação diferencial de condução de calor é escrita como: 
+
+\begin{equation}
+\frac{\partial t(r, \tau)}{\partial \tau} = a \left( \frac{\partial^2 t(r, \tau)}{\partial \tau^2} + \frac{1}{r} \frac{\partial t(r, \tau)}{\partial \tau} \right), \ \ \ \ \left( \tau > 0; \ \ 0 < r < R \right).
+\label{4.1}
+\end{equation}
+As condições de contorno são as seguintes (Fig. \ref{f3.3}):
+\begin{eqnarray}
+t (r, 0) = f(r), \\
+\label{4.2}
+t (R, \tau) = t_a = constante, \\
+\label{4.3}
+\frac{\partial t(0, \tau)}{\partial r} = 0, \ \ \ t (0, \tau) \neq \infty.
+\label{4.4} 
+\end{eqnarray}
+ A última condição significa que essa temperatura ao longo do eixo do cilindro, durante todo o processo de transferência de calor, deve ser finito. Veja a Figura \ref{f3.3}.
+ 
+%==================================================================================
+\subsection*{Solução do Problema por Separação de Variáveis}
+%==================================================================================
+
+Na referência \cite{calor}, mostra-se que a seguinte solução particular da equação de condução de calor através do método de variáveis é dada por:
+\begin{equation}
+t = \vartheta \exp[-a k^2 \tau],
+\end{equation}
+onde $ \vartheta $ é a solução da equação diferencial
+\begin{eqnarray*}
+\nabla^2 \vartheta + k^2 \vartheta = 0.
+\end{eqnarray*}
+No nosso caso $ \vartheta (x) $ é uma solução da \textbf{equação de Bessel}
+\begin{eqnarray}
+\vartheta '' (r) + \left( \frac{1}{r} \right) \vartheta '(r) + k^2 \vartheta (r) = 0,
+\label{46}
+\end{eqnarray}
+a qual podemos, ainda, escreve-lá na forma
+\begin{eqnarray}
+r \vartheta '' (r) + \vartheta '(r) + k^2 r \vartheta (r) = 0.
+\label{47}
+\end{eqnarray}
+Fazendo $ \vartheta = y(x) $ e substituindo $ k^2 r  $ em (\ref{47}) pela variável independente $ x $. Deste modo, supondo uma solução para a equação de Bessel:
+\begin{eqnarray}
+x y '' + y ' + x y = 0,
+\label{48}
+\end{eqnarray}
+na forma de uma série de potências 
+\begin{eqnarray}
+y(x) = \sum_{n=0}^{\infty} a_{n} x^{n} = a_{0} + a_{1} x + a_{2} x^{2} + \ldots ; \ \ \ a_n \neq 0. 
+\label{49}
+\end{eqnarray}
+Derivando termo a termo em (\ref{49}), obtemos:
+\begin{eqnarray*}
+y '(x) & = & \sum_{n=1}^{\infty} n a_{n} x^{n - 1} = a_{1} + 2 a_{2} x + 3 a_{3}^2 x + 4 a_{4} x^{3} + \ldots, \\ y ''(x) & = & \sum_{n=2}^{\infty} n (n - 1) a_{n} x^{n - 2} = 2 a_{2} + 6 a_{3}^2 x + 12 a_{4} x^{2} + \ldots .
+\end{eqnarray*}
+Substituindo $y (x) $ e suas derivadas $ y '(x) $ e $y ''(x) $ em (\ref{48}). Obtemos:
+\begin{eqnarray*}
+x \sum_{n=2}^{\infty} n (n - 1) a_{n} x^{n - 2} + \sum_{n=1}^{\infty} n a_{n} x^{n - 1} + x \sum_{n=0}^{\infty} a_{n} x^{n}. 
+\end{eqnarray*}
+Vamos abrir as séries:
+\begin{eqnarray*}
+\left( 2 a_{2} x + 6 a_{3} x^2 + 12 a_{4} x^{3} + \ldots  \right) + \left( a_{1} + 2 a_{2} x + 3 a_{3} x^2 + 4 a_{4} x^{3} + \ldots \right) \\ + \left( a_{0} x + a_{1} x^2 + a_{2} x^{3} + a_3 x^4 + \ldots \right) = 0.
+\end{eqnarray*}
+\begin{eqnarray*} 
+\Rightarrow a_1 + \left( a_0 + 4 a_{2} \right) x  + \left( a_{1} + 9 a_{3} \right) x^2 + \left( a_2 + 16 a_4 \right) x^3 + \ldots = 0. 
+\end{eqnarray*}
+\begin{eqnarray}
+\Rightarrow a_1 + \left( a_0 + 2^2 a_{2} \right) x + \left( a_{1} + 3^2 a_{3} \right) x^2 + \left( a_2 + 4^2 a_4 \right) x^3 + \ldots = 0.
+\label{410}
+\end{eqnarray}
+Note que $ a_1 = 0 $. Daí
+\begin{eqnarray*}
+a_1 + 3^2 a_3 = 0 \Rightarrow a_3 = \frac{- a_1}{3^2} = 0.
+\end{eqnarray*}
+E assim, por diante, temos que a soma dos termos $ a_n $, com subscrito ímpares são nulos.  De fato, basta igualarmos a zero a soma de todos coeficientes para cada valor de $ x $, isso nos dar:
+\begin{center}
+$ a_0 + 2^2 a_2 = 0 \Rightarrow a_2 = - \frac{1}{2^2} a_0$;
+\end{center}
+\begin{center}
+$ a_1 + 3^2 a_3 = 0 \Rightarrow a_3 = \frac{- a_1}{3} = 0$;
+\end{center}
+\begin{center}
+$ a_2 + 4^2 a_4 = 0 \Rightarrow a_4 = - \frac{1}{4^2} a_2 = \frac{1}{2^2 4^2} a_0 $,
+\end{center}
+e assim por diante. De maneira que: 
+\begin{center}
+$ a_{n - 2} + n^2 a_n = 0 $.
+\end{center}
+Substituindo, os valores obtidos para os $ a_n $ em (\ref{49}), teremos: 
+\begin{eqnarray}
+y(x) = a_{0} \left( 1 - \frac{x^{2}}{2^2} + \frac{x^{4}}{2^2 4^2} - \frac{x^{6}}{2^2 4^2 6^2} + \ldots \right). 
+\label{411}
+\end{eqnarray}
+Segue que, se $ a_0 = 1 $ em (\ref{411}), então, teremos em particular que a equação será igual a \textbf{funções de Bessel primeira espécie de ordem $ 0 $}, isto é:
+\begin{eqnarray}
+J_{0} (x) =  1 - \frac{x^{2}}{2^2} + \frac{x^{4}}{2^2 4^2} - \frac{x^{6}}{2^2 4^2 6^2},
+\label{412}
+\end{eqnarray}
+A segunda solução particular da equação (\ref{48}) pode ser encontrado usando seguinte fórmula:
+\begin{eqnarray}
+y_2(x) = y_1(x) \int \frac{e^{- \int p(x)} dx }{y^{2}_1 (x)} dx,
+\end{eqnarray}
+onde $ y_1 (x) = J_{0} (x) $ é a primeira solução particular de (\ref{48}). Repetindo o mesmo procedimento do Exemplo (\ref{exe36}), obteremos agora:
+\begin{eqnarray}
+y_2(x) = J_{0} (x) ln x + \frac{ x^2 }{ 2^{2}} - \frac{x^4}{2^2 4^2} \left( 1 + \frac{1}{2} \right) + \frac{x^6}{2^2 4^2 6^2} \left( 1 + \frac{1}{2} \frac{1}{3} \right) - \cdots .
+\end{eqnarray}
+Normalmente, em vez da função $ y_2(x) $, é utilizado $ Y_0(x) $, chamada \textbf{função de Bessel de segunda espécie} de ordem zero (veja a Seção \ref{besselss}), de modo $ Y_0(x) $ é uma solução particular independente de $ y_1(x) $ que esta ligada a $ y_2(x) $ de tal maneira que: 
+\begin{eqnarray}
+Y_0(x) = \frac{2}{\pi} y_2(x) + \frac{2}{\pi} J_{0} (x) \left(  \gamma - ln 2 \right),
+\end{eqnarray} 
+onde $ \gamma = 0,5772 $ é a chamada \textbf{constante de Euler}. 
+
+Como as soluções particulares $ y_1(x) = J_0(x) $ , $ y_2(x) $ ou $ Y_0(x) $ são linearmente independente desde que $ Y_0(x)/ J_0(x) \neq const. $, deste modo, a solução geral da equação Bessel será
+\begin{equation}
+y(x) = c_1  J_0(x) = c_2 Y_0(x),
+\end{equation}
+onde $c_1 $ e $ c_2$ são constantes arbitrárias.
+
+Consideremos o seguinte resultado, a equação (\ref{47}) reduzida a equação (\ref{48}) assumindo $ r = x / k $, nos dá a seguinte solução para (\ref{47}): 
+\begin{equation}
+\vartheta (r) = c_1  J_0(kr) + c_2 Y_0(kr),
+\end{equation}
+uma vez que a temperatura ao logo do eixo do cilindro (r = 0) deve ser finito, a solução não pode conter a função de Bessel de segunda espécie, pois a medida que $ r \rightarrow 0 $, $ Y_0(kr) \rightarrow  - \infty $ (veja a Figura \ref{f3.2}). Assim, a partir das condições física do problema, teremos $ c_2 = 0 $.
+E a função $ J_0(kr) $ da seguinte forma:  
+\begin{eqnarray*}
+J_{0} (kr) =  1 - \frac{(kr)^{2}}{2^2} + \frac{(kr)^{4}}{2^2 4^2} - \frac{(kr)^{6}}{2^2 4^2 6^2},
+\end{eqnarray*}
+a qual satisfaz a condição (\ref{4.4}) como
+\begin{eqnarray*}
+J_{0} ' (kr) & = &  - k \left[ \frac{(kr)}{2} - \frac{(kr)^{3}}{2^2 4} + \frac{(kr)^{5}}{2^2 4^2 6} - \cdots \right] \\ & = & - k j_1 (kr),
+\end{eqnarray*} 
+visto que, a medida $ r \rightarrow 0$, $ J_{0} ' (kr)$ também tente a $ 0 $.
+
+Nós iremos encontrar as constantes $k $ e $c_1 $ a partir do limite e condições iniciais.
+
+Para simplificar nossos calculo, tomaremos $ t_a = 0$, isto significa, que o ponto de referência(inicial) da temperatura é $ t_a$. Assim, da condição de contorno (\ref{4.3}) em (\ref{st}), obteremos:
+\begin{equation*}
+t_a = c_1  J_0(kR) \exp[ - a k^2 \tau] = 0.
+\end{equation*} 
+
+Conseqüentemente, durante o processo de arrefecimento ($ 0 < \tau < \infty $) devemos considera válida a seguinte igualdade
+\begin{equation}
+J_0 (kR) = 0.
+\label{*}
+\end{equation}
+
+Esta igualdade é referida como uma função característica, a partir dela podemos definir os valores $ k_n $.  
+ 
+
+Esta função $ J_{0} (kR)$ é semelhante a uma função trigonométrica $  \cos (kR) $ (\ref{f3.1}); temos assim um número infinito de raízes $ k_n R = \mu_n $, ou seja, $\mu_1 = 2,4048 $, $\mu_2 = 5,5201  $, $\mu_3 = 8,6537 $ e assim por diante.
+Devemos, considerar para grandes valores de $ n $ a diferença $ \mu_{n + 1} - \mu_{n} $ está perto de $ \pi $.
+
+Logo,
+\begin{equation}
+k_n = \mu_n / R.
+\end{equation}
+Assim, temos um número infinito de soluções na forma particular:
+\begin{equation}
+t = c_1  J_0(k_n r) \exp[ - a k_n^2 \tau].
+\label{421}
+\end{equation}
+Essas soluções são chamadas de funções fundamentais. Todos eles vão ser válido não só para a equação de difusão (\ref{4.1}), mas também para a condição contorno (\ref{4.3}).
+A solução geral será uma série na forma:
+\begin{equation}
+t (r, \tau) = \sum_{n=1}^{\infty} c_n  J_0(k_n r) \exp[ - a k_n^2 \tau].
+\label{422}
+\end{equation}
+
+Usaremos agora a condição inicial (\ref{4.1}) para determinar o valor das constantes $ c_n $, isto é, 
+\begin{equation}
+t (r, 0) = f(r) = \sum_{n=1}^{\infty} c_n  J_0(k_n r).
+\label{423}
+\end{equation}
+A equação (\ref{423}) representa a transformação de Fourier-Bessel. Assim, para a determinação das constantes $ c_n $'s devemos usar o mesmo método como descrito anteriormente, mas, primeiramente devemos provar que o sistema das funções $ \sqrt{x} J_0(ax)$,  $ \sqrt{x} J_0(bx)$ é ortogonal.
+
+Apresentaremos as seguintes notações:
+\begin{equation}
+y_1 =  J_0(ax), \ \ \ \ \ \ \ \ y_2 =  J_0(bx)
+\label{424}
+\end{equation}
+
+As funções $J_0(ax) $ e $ J_0(bx)$ satisfazem as equações diferenciais apropriados em $ y_1 $. É, portanto, é parte integrante da equação
+\begin{equation*}
+x y'' + y' + a^2 x y = 0, 
+\end{equation*}
+e $ y_2 $ a parte integrante da seguinte equação
+\begin{equation*}
+x y'' + y' + b^2 x y = 0. 
+\end{equation*}
+Note que, estas equações podem ser escritas como
+\begin{equation*}
+(x y')' =  - a^2 x y, \ \ \ \ \ \ \ \ (x y')' =  - b^2 x y.
+\end{equation*}
+Assim, temos
+\begin{equation}
+(x y_1')' =  - a^2 x y_1,
+\label{425} 
+\end{equation}
+\begin{equation}
+(x y_2')' =  - b^2 x y_2.
+\label{426}
+\end{equation}
+
+Multiplicando, a igualdade (\ref{425}) por $ y_2 $ e a igualdade (\ref{426}) por $ y_1 $. Em seguida, subtraindo-se a segunda a partir da primeira, obtemos (também responsável por igualdade (\ref{424})):
+\begin{eqnarray*}
+b^2 x y_1 y_2 - a^2 x y_1 y_2 & = & y_2 (x y_1')' - y_1 (x y_2')' \\ & = & y_2 (x y_1'' + x' y_1') - y_1 (x y_2'' + x' y_2') \\ & = &  y_2 (x y_1'') + y_2 (x' y_1') - y_1 (x y_2'') - y_1 (x' y_2') \\ & = & ( y_2 x) y_1'' + (y_2 x') y_1' - (y_1 x) y_2'' - (y_1 x') y_2' \\ & = & ( y_2 x) y_1'' + y_2 y_1' - \left[ (y_1 x) y_2'' + y_1 y_2' \right]   \\ & = & (y_2 x y_1')' - (y_1 x y_2')'  = (y_2 x y_1' - y_1 x y_2')'. 
+\end{eqnarray*}
+Reescrever essa igualdade, assim, teremos: 
+\begin{eqnarray}
+(b^2 - a^2) x y_1 y_2 = (y_2 x y_1' - y_1 x y_2')'. 
+\label{427}
+\end{eqnarray}
+
+Após a integração de ambos os lados da igualdade de $ 0 $ a $ x $, temos:
+\begin{eqnarray*}
+(b^2 - a^2) \int_{0}^{x} x y_1 y_2 = x y_2 y_1' - x y_1 y_2'. 
+\end{eqnarray*}
+Substituindo as ex-notações de (\ref{424}), obtemos:
+\begin{eqnarray}
+\int_{0}^{x} x J_0(ax)J_0(bx) dx = \frac{bxJ_0(ax)J_1(bx) - axJ_0(bx)J_1(ax)}{b^2 - a^2}, 
+\label{428} 
+\end{eqnarray}
+como
+\begin{eqnarray*}
+y_1 ' & = & aJ_0' (ax) = - aJ_1 (ax), \\ y_2 ' & = & bJ_0' (bx) = - bJ_1 (bx). 
+\end{eqnarray*}
+
+
+Note que, se $b \rightarrow a  $, o lado direito de (\ref{428}) torna-se uma indefinido do tipo $ 0/0 $. Aplicando a regra L'Hospital, temos:
+\begin{eqnarray*}
+\int_{0}^{x} x J_0^2(ax) dx & = & \lim_{b \to a} \frac{xJ_0(ax)J_1(bx) + bx^2J_0(ax)J_1'(bx) - ax^2J_0'(bx)J_1(ax)}{2b} 
+\\ & = & \frac{1}{2a} \left\lbrace  x J_0(ax) J_1(ax) + a x^2 J_0(ax) \left[  J_0(x) - \frac{J_1(ax)}{ax} \right] + ax^2J_1^2(ax)\right\rbrace ,  
+\end{eqnarray*}
+desde 
+\begin{eqnarray*}
+J_0 ' (ax) & = & - J_1 (ax), \\ J_1 ' (ax) & = & J_0 (ax) - (1/ax)J_1(ax). 
+\end{eqnarray*}
+
+Consequentemente, finalmente, temos:
+\begin{eqnarray}
+\int_{0}^{x} x J_0^2(ax) dx = \frac{1}{2} x^2 \left[  J_0^2(ax) + J_1^2(ax) \right].
+\label{429} 
+\end{eqnarray}
+
+Esta fórmula é válida para todos os valores de $ a $ e $ b $ e vai ser usada mais tarde.
+
+Multiplicando ambos os lados da igualdade (\ref{423}) por $ r J_0 (K_m r) $ onde $ K_m r $ são as raízes da função $ J_0 (K_m r) $ e integrando nos limites de $  0$ a $ R $:
+
+\begin{eqnarray}
+\int_{0}^{R} r f(r) J_0(k_m r) dr & = &  \int_{0}^{R} \sum_{n=1}^{\infty} c_n r J_0(k_n r) J_0(k_m r) dr \nonumber \\ & = & \sum_{n=1}^{\infty} c_n \int_{0}^{R} r J_0(k_n r) J_0(k_m r) dr.
+\label{430}
+\end{eqnarray}
+De acordo com a igualdade (\ref{428}), para $ m \neq n $, temos:
+\begin{eqnarray*}
+\int_{0}^{R} r J_0(k_n ) r J_0(k_m r) dr  = R \frac{k_m J_o (k_n R) J_1(k_m R) - k_n J_0(k_m R) J_1(k_n R)}{k_m^2 - k_n^2} = 0,
+\end{eqnarray*}
+pois, $ J_0(k_n R) = J_0(k_m R) = 0 $, (No contorno, veja (\ref{*})). Para $ m = n $, de acordo com a fórmula (\ref{429}), teremos 
+\begin{eqnarray*}
+\int_{0}^{R} r J_0^2(k_n r) dr  = \frac{1}{2}R^2 J_1^2(k_n R).
+\end{eqnarray*}
+Assim, por (\ref{430}), temos
+\begin{eqnarray*}
+c_n = \frac{(2/R^2)\int_{0}^{R} r f(r) J_0(k_n r) dr }{J_1^2(k_nR)}.
+\end{eqnarray*}
+
+Finalmente, a solução do nosso problema será de forma:
+\begin{eqnarray*}
+t(r, \tau) = \sum_{n=1}^{\infty} \frac{J_0 (y_n r/R)}{J_1^2(y_n)} \frac{2}{R^2} x \int_{0}^{R} r f(r) J_0(y_n r/R) dr \exp[ - y_n^2{a \tau / R^2}].
+\end{eqnarray*}
+
+Apesar do problema solucionado estar aplicado ao resfriamento de um corpo cilíndrico, este problema pode ser aplicado também à transferência de massa. Na figura abaixo, a solução encontrada foi utilizada para descrever a perda de água de uma banana num processo de desidratação osmótica. 
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.4]{formatado.png}
+\caption{Conétrias da perda de água de banana num processo de desidratação osmótica}
+\label{f3.3}
+\end{figure} 
+\newpage

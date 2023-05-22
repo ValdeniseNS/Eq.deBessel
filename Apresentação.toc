@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.10pt}
+\select@language {brazil}
+\beamer@sectionintoc {1}{Aspectos Hist\'oricos}{4}{0}{1}
+\beamer@sectionintoc {2}{Conceitos Matem\'aticos}{13}{0}{2}
+\beamer@sectionintoc {3}{Cilindro Infinito}{46}{0}{3}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}

@@ -1,0 +1,1197 @@
+\chapter{Método de Frobenius}
+
+Neste capítulo iremos estudar o chamado Método de Frobenius (George Ferdinand Frobenius 1849-1917). Uma importante ferramenta para encontrarmos soluções de Equações Diferencias Ordinárias de Segunda Ordem na forma de série de Taylor, independentemente se os coeficientes são ou não constantes.
+
+O método é aplicável geralmente em EDOs de segunda ordem de considerável importância prática - entre elas, a equação de Bessel (Friedrich Wilheem Bessel 1784-1846), pois possuem coeficientes que embora não sejam analíticos é possível encontrarmos soluções, multiplicando as séries por um termo logarítmico ou por uma potência de expoente fracionário . A equação de Bessel surge com grande frequência, em engenharia e/ou física matemática, quando da resolução de equações diferenciais parciais pelo método da separação de variáveis. 
+ 
+
+%==================================================================================
+\section{Método de Frobenius}
+\label{Frobenius}
+%==================================================================================
+
+O Método de Frobenius é uma extensão do método das séries de potências, consiste fundamentalmente em procurar uma solução da equação diferencial de segunda ordem linear e homogênea, na forma de série de Taylor.
+
+O método é aplicável a equações na sua forma padrão:
+\begin{eqnarray}
+y'' + p(z) y' + q(z) y = 0, 
+\label{301}
+\end{eqnarray}
+onde $p(z) $ e $q(z) $ não são funções analíticas em torno de $ z = 0 $, mas $zp(z) $ e $z^2q(z) $ são. Se $p(z) $ e $q(z) $ forem analíticas em $ z = 0 $ o método não é todo necessário, basta tomarmos $ s = 0 $ e utilizarmos a resolução descrita para o método de séries de potências.  
+%
+O método de Frobenius para uma equação com ponto singular regular, afirma que podemos encontrar solução na forma:
+\begin{eqnarray*}
+y(x) = (x - x_0)^{s} \sum_{n=0}^{\infty} a_{n} (x - x_0)^{n} = \sum_{n=0}^{\infty} a_{n} (x - x_0)^{n + s},
+\end{eqnarray*}
+com $ a_{0} \neq 0 $ e onde $ s $ é um parâmetro livre. 
+
+Visto que sempre é possível deslocarmos a singularidade sem mudar essencialmente a equação diferencial, consideraremos $ x = x_{0} + z $ e restringiremos, sem perda de generalidade, nosso estudo ao caso do ponto $ z = 0 $. Deste modo, consideraremos somente a seguinte série 
+\begin{eqnarray*}
+y(x) = \sum_{n=0}^{\infty} a_{n} x^{n + s}.
+\end{eqnarray*}
+%onde $ a_{0} \neq 0 $ e onde $ s $ é o parâmetro.
+
+\begin{teo.}\textbf{(Método de Frobenius)}
+Consideremos que $ a_{1} $ e $ a_{0} $ sejam funções quaisquer e analíticas em $ x = 0 $. Então a EDO
+\begin{eqnarray}
+y'' + \frac{a_1(x)}{x} y' + \frac{a_0(x)}{x^2} y = 0,
+\label{2.6}
+\end{eqnarray}
+possui pelo menos uma solução que pode ser representada na forma
+\begin{eqnarray}
+y(x) = x^s \sum_{n=0}^{\infty} a_{n} (x - x_0)^{n} = x^s (a_{0} + a_{1} x + a_{2} x^{2} + \ldots ) \ \ \ \ \ \ (a_{0} \neq 0)
+\label{2.7}
+\end{eqnarray}
+onde o expoente $ s $ pode ser qualquer número (real ou complexo), sendo $ s $ escolhido de modo que $ a_{0} \neq 0 $.
+
+A EDO(\ref{2.6}) tem também uma segunda solução (de tal modo que a essas duas solução são linearmente independentes), que pode ser similar a equação (\ref{2.7}), com valores diferentes para $ s $ e para os coeficientes, podendo também ter um termo logarítmico.
+\label{TMF}  
+\end{teo.}
+
+Não demonstraremos esse teorema. O que importa para nosso estudo é que exista uma solução em série da forma (\ref{2.7}). 
+
+%\begin{exe.}
+%A equação de Bessel (que discutiremos na próxima seção)
+%\begin{eqnarray}
+%y'' + \frac{1}{x} y' + \left(\frac{x^{2} - v^{2}}{x^{2}}\right) y = 0  
+%\end{eqnarray}
+%onde v é um parâmetro é na forma(\ref{2.6}) com $ a_{1}(x) = 1 $ e $ a_{0}(x) = x^{2} - v^{2} $ analíticos em $ x = 0 $, de modo que o teorema anterior se aplica. Essa EDO não poderia ser tratada de modo complemente geral pelo método de série de potências.
+%\label{bb}  
+%\end{exe.}
+
+%===================================================================================================================
+\subsection{Equação Indicial, Indicação da Forma das Soluções} 
+%====================================================================================================================
+
+Explicaremos agora o método de Frobenius para resolver a equação (\ref{eqfrob}).  
+Deste modo, devemos primeiro, supor soluções em série da forma (\ref{2.7}). Em seguida, derivamos (\ref{2.7}) termo a termo, em relação a $ x $. Note que na derivada,
+
+\begin{center}
+\begin{itemize}
+$\sum_{n=0}^{\infty} (s + n) a_{n} x^{n + s - 1} = x^{s - 1} \left[ sa_0 + (s + 1) a_1 x + \ldots \right] $,
+\end{itemize}
+\end{center} 
+o índice obrigatoriamente começa a variar a parir de $ n = 0 $, diferente do método de série de potências que podemos escolher começar da forma mais conveniente, como em geral o primeiro termo de $ y = a_0 x^s + a_1 x^{s + 1} + \cdots $ não é uma constante e não se anula por derivação. A mesma observação vale para a derivada de segunda ordem
+\begin{center}
+\begin{itemize}
+$\sum_{n=0}^{\infty} (s + n) (s + n - 1)a_{n} x^{n + s - 2} = x^{s - 2} \left[ s(s - 1) a_0 + (s + 1)s a_1 x + \ldots \right].$
+\end{itemize}
+\end{center}
+Substituindo (\ref{2.7}) e suas derivadas, mas as séries (\ref{xp}) (\ref{xq}) em (\ref{eqfrob}), obtemos
+
+\begin{eqnarray*}
+\sum_{n=0}^{\infty} (s + n) (s + n - 1) a_{n} x^{n + s} + \left( \sum_{n=0}^{\infty} p_{n} x^{n}\right)\left( \sum_{k=0}^{\infty} (s + k) a_{k} x^{k + s}\right) \\ + \left( \sum_{n=0}^{\infty} q_{n} x^{n }\right)\left( \sum_{k=0}^{\infty} a_{k} x^{k + s}\right) = 0.
+\end{eqnarray*}
+Multiplicando as série e separando os termos, Obtemos
+\begin{eqnarray*}
+\sum_{n=0}^{\infty} (s + n) (s + n - 1) a_{n} x^{n + s} + \sum_{n,k=0}^{\infty} p_{n} (s + k) a_{k} x^{n + k + s} +  \sum_{n,k=0}^{\infty} q_{n} a_{k} x^{n + k + s} = 0 .
+\end{eqnarray*}
+
+\begin{eqnarray*}
+ \Rightarrow \sum_{n=0}^{\infty} \left\lbrace (s + n) (s + n - 1) a_{n} + \sum_{k=0}^{n} a_{k} \left[ (s + k) p_{n - k} + q_{n - k}\right] \right\rbrace x^{s + n} = 0 .
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\Rightarrow \left[ s(s - 1) + p_0 s + q_0 \right] a_0 x^s + \sum_{n=1}^{\infty} \left\lbrace (s + n) (s + n - 1) a_{n} + \sum_{k=0}^{n - 1} a_{k} \left[ (s + k) p_{n - k} + q_{n - k}\right] \right\rbrace \\  x^{s + n} = 0. 
+\end{eqnarray*}
+
+Uma vez que, por suposição, $ a_0 \neq 0 $, igualamos a zero a equação correspondente à $ x^s $, obtemos 
+\begin{eqnarray}
+s(s - 1)+ p_0 s + q_0 = 0,
+\label{eqindF}
+\end{eqnarray}
+essa importante equação quadrática é chamada de \textbf{equação indicial}, exatamente a mesma equação de Cauchy-Euler. Deste modo, as raízes de (\ref{eqindF}), chamadas de \textbf{expoentes da equação na singularidade}, devemos sempre substituí-las na equação:
+\begin{eqnarray*}
+(s + n) (s + n - 1) a_{n} + \sum_{k=0}^{n - 1} a_{k} \left[ (s + k) p_{n - k} + q_{n - k}\right] = 0, \ \ \ \ n\geq 1
+\end{eqnarray*}
+chamada \textbf{forma recorrência}. De modo que, o Teorema \ref{TMF} garante que pelo menos uma solução na forma dessa série pode ser encontrada.
+
+\begin{exe.}
+A equação diferencial
+\begin{eqnarray}
+x y'' + 3 y' - y = 0
+\label{2.10}
+\end{eqnarray}
+possui uma singularidade regular em $ x = 0 $. Pelo método de Frobenius, vamos mostrar que podemos ter pelo menos uma solução na forma de série:
+\begin{eqnarray*}
+y(x) = \sum_{n=0}^{\infty} a_{n} x^{n + s}.
+\end{eqnarray*} 
+Derivamos $ y $ termo a termo, obtemos
+\begin{center}
+\begin{itemize}
+$ y' (x) = \sum_{n=0}^{\infty} (s + n) a_{n} x^{n + s - 1} = x^{s - 1} \left[ sa_0 + (s + 1) a_1 x + \ldots \right] $
+\end{itemize}
+\end{center} 
+e 
+\begin{center}
+\begin{itemize}
+$ y'' (x) = \sum_{n=0}^{\infty} (s + n) (s + n - 1)a_{n} x^{n + s - 2} = x^{s - 2} \left[ s(s - 1) a_0 + (s + 1)s a_1 x + \ldots \right].$
+\end{itemize}
+\end{center}
+Substituindo $ y $ e suas derivadas, na equação (\ref{2.10}). Temos:
+
+\begin{center}
+\begin{itemize}
+$ \sum_{n=0}^{\infty} (s + n) (s + n - 1)a_{n} x^{n + s - 1} + 3 \sum_{n=0}^{\infty} (s + n) a_{n} x^{n + s - 1} - \sum_{n=0}^{\infty} a_{n} x^{n + s} = 0$
+\end{itemize}
+\end{center}
+
+\begin{center}
+\begin{itemize}
+$ \Rightarrow \sum_{n=0}^{\infty} \left[ (s + n)^{2} - (s + n) + 3(s + n) \right] a_n x^{n + s - 1} - \sum_{n=0}^{\infty} a_{n} x^{n + s} = 0$
+\end{itemize}
+\end{center} 
+
+\begin{center}
+\begin{itemize}
+$ \Rightarrow  x^s \left[ s(s + 2) a_0 x^{-1} + \sum_{n=0}^{\infty} \left[ (s + n)(s + n + 2)  \right] a_n x^{n - 1} - \sum_{n=0}^{\infty} a_{n} x^{n} \right] = 0$
+\end{itemize}
+\end{center}
+Fazendo $ n = n + 1 $ na primeira série, obtemos:
+\begin{center}
+\begin{itemize}
+$ x^s \left[ s(s + 2) a_0 x^{-1} + \sum_{n=0}^{\infty} \left[ (s + n + 1)(s + n + 3)  \right] a_{n + 1} x^{n} - \sum_{n=0}^{\infty} a_{n} x^{n} \right] = 0$
+\end{itemize}
+\end{center}
+
+\begin{center}
+\begin{itemize}
+$ \Rightarrow x^s \left[ s(s + 2) a_0 x^{-1} + \sum_{n=0}^{\infty} \left[ (s + n + 1)(s + n + 3) a_{n + 1} - a_{n} \right]  x^{n} \right] = 0$
+\end{itemize}
+\end{center}
+Deste modo, temos que a equação indicial é da forma $ s(s + 2) = 0 $ onde os expoentes são as raízes indicias $s_1 = 0 $ e $s_2 = - 2 $. Como
+\begin{equation}
+(s + n + 1)(s + n + 3) a_{n + 1} - a_{n} = 0, \ \ \ \\ (n \geq 0),
+\label{a}
+\end{equation}
+Segue-se que, quando $ s_1 = 0 $ em (\ref{a}),temos:
+
+\begin{center}
+$a_{n + 1} = \frac{a_n}{(n + 1)(n + 3)}$
+\end{center}
+
+\begin{center}
+$ a_1 = \frac{a_0}{1 \times 3} $
+\end{center}
+
+\begin{center}
+$ a_2 = \frac{a_1}{2 \times 4} = \frac{a_0}{(1 \times 3)(2 \times 4)} = \frac{2a_0}{2! 4!}  $
+\end{center}
+
+\begin{center}
+$ a_3 = \frac{a_2}{3 \times 5} = \frac{2a_0}{(3 \times 2! \times 5 \times 4!)} = \frac{2a_0}{3! 5!} $
+\end{center}
+
+\begin{center}
+$ a_4 = \frac{a_3}{4 \times 6} = \frac{2a_0}{(4 \times 3! \times 6 \times 5!)} = \frac{2a_0}{4! 6!} $
+\end{center}
+
+\begin{center}
+$ \vdots $ 
+\end{center}
+
+\begin{center} 
+$ a_n = \frac{2a_0}{n!(n + 2)!}, \ \ \ \ (n \geq 1) $.
+\end{center}
+Logo, uma solução da série é
+\begin{eqnarray*} 
+ y_1 = a_0 \left[ 1 + \sum_{n=1}^{\infty} \frac{2}{n!(n + 2)!} x^n\right]  = \sum_{n=0}^{\infty} \frac{2 a_0}{n!(n + 2)!} x^n; \ \ \ \ \left( |x| < \infty \right).  
+\end{eqnarray*}
+Agora, quando $ s_2 = - 2 $ em (\ref{a}),temos:
+\begin{equation}
+(n - 1)(n + 1)a_{n + 1} - a_n = 0.
+\label{c}
+\end{equation}
+Note que para $ n = 1 $ e  $n = 0 $, temos em (\ref{c}), respectivamente:
+\begin{equation*}
+ 0 \times 2 a_2 - a_1 = 0 \Rightarrow a_1 = 0, 
+\end{equation*}
+\begin{equation*}
+ - 1 \times 1 a_1 - a_0 = 0 \Rightarrow a_0 = 0. 
+\end{equation*}
+Continuando, encontraremos:
+\begin{center}
+$ a_{n + 1} = \frac{a_n}{(n - 1)(n + 1)} \ \ \ \ \ (n \geq 2 )  $.
+\end{center}
+Deste modo 
+
+\begin{center}
+$ a_3 = \frac{a_2}{1 \times 3} $
+\end{center}
+
+\begin{center}
+$ a_4 = \frac{a_3}{2 \times 4} = \frac{a_2}{(1 \times 3 )(2 \times 4)} = \frac{2a_2}{2! 4!}$ 
+\end{center}
+
+\begin{center}
+$ a_5 = \frac{a_4}{3 \times 5} = \frac{2a_2}{(3 \times 2! \times 5 \times 4!)} = \frac{2a_2}{3! 5!} $
+\end{center}
+
+\begin{center}
+$ \vdots $ 
+\end{center}
+
+\begin{center} 
+$ a_n = \frac{2a_2}{(n - 2)!n!}.  \ \ \ \ \ \ \ (n \geq 2)$
+\end{center}
+Logo,
+\begin{equation}
+ y_2 =  a_2 x^{- 2} \sum_{n=2}^{\infty} \frac{2}{(n - 2)!n!} x^n.  
+\label{y2}
+\end{equation}
+Porém, se fizermos uma inspeção detalhada de (\ref{y2}) e fazendo $ n = n - 2 $, veremos que $ y_2 $ é um múltiplo de $ y_1 $  (veja no Exemplo (3.3)). Disto, concluirmos que o Método de Frobenius nos dá somente uma solução em série para (\ref{2.10}).
+\end{exe.}
+
+Tecnicamente, o método de Frobenius é similar ao método das séries de potências, uma vez tendo-se determinado as raízes da equação indicial.
+
+Veremos a seguir que existem três casos diferentes no Método de Frobenius, através de exemplos, nos quais $ x = 0 $ é o ponto singular regular em torno da qual desejaremos a solução, que dependendo dos valores reais $ s_1 $ e $s_2 $, veja a seção(\ref{RVPR}), obtemos a solução geral da equação (\ref{2.6}).
+
+%===================================================================================================================   
+\subsection{Caso de Raízes Indicias Distintas não se Deferindo por um Número Inteiro: $ s_{1} - s_{2} \not \in \mathbb{Z} $}
+\label{naoint}
+%===================================================================================================================
+
+Neste caso, o método de Frobenius sempre fornece duas soluções linearmente independentes para a equação (\ref{eqfrob}) na forma: 
+\begin{eqnarray*}
+y_1(x) = \sum_{n=0}^{\infty} a_{n} x^{n + s_{1}} \ \ \ \  \  (a_{0} \neq 0),
+\end{eqnarray*}
+
+\begin{eqnarray*}
+y_2(x) = \sum_{n=0}^{\infty} b_{n} x^{n + s_{2}} \ \ \ \  \  (b_{0} \neq 0).
+\end{eqnarray*}
+
+\begin{exe.}
+Encontre uma solução em série para a equação
+\begin{eqnarray*}
+3 x y'' + y' -y' = 0.
+\end{eqnarray*}
+
+Devemos supor que exista uma solução da forma:
+\begin{eqnarray*}
+y(x) = \sum_{n=0}^{\infty} a_{n} (x - x_0)^{n + s} \ \ \ \  \  (a_{0} \neq 0),
+\end{eqnarray*}
+deste modo, precisamos determinar todos $ a_{n} 's $. Seque-se, derivando-se a série termo a termo, obtemos
+\begin{eqnarray*}
+\sum_{n=0}^{\infty} (s + n) a_{n} x^{n + s - 1} 
+\end{eqnarray*} 
+e 
+\begin{eqnarray*}
+\sum_{n=0}^{\infty} (s + n) (s + n - 1)a_{n} x^{n + s - 2}.
+\end{eqnarray*}
+Substituindo $ y $ e suas derivadas na equação dada, obtemos
+\begin{eqnarray*}
+3 x \sum_{n=0}^{\infty} (s + n) (s + n - 1)a_{n} x^{n + s - 2} + \sum_{n=0}^{\infty} (s + n) a_{n} x^{n + s - 1} - \sum_{n=0}^{\infty} a_{n} x^{n + s} = 0.
+\end{eqnarray*}
+Deslocando o  índice $ n = n - 1 $ na terceira série, obtemos que
+\begin{eqnarray*}
+3 x \sum_{n=0}^{\infty} (s + n) (s + n - 1)a_{n} x^{n + s - 2} + \sum_{n=0}^{\infty} (s + n) a_{n} x^{n + s - 1} - \sum_{n=1}^{\infty} a_{n - 1} x^{n + s - 1} = 0.
+\end{eqnarray*} 
+\begin{eqnarray*}
+\Rightarrow \left[ 3 (s - 1)s + s \right] a_0 x^{s - 1} + \sum_{n=1}^{\infty} \left\lbrace  \left[ 3(s + n) (s + n - 1) + (s + n) \right]  a_{n} - a_{n - 1} \right\rbrace  x^{n + s - 1} = 0.
+\end{eqnarray*}
+\begin{eqnarray*}
+\Rightarrow \left[ s (3s - 2) + s \right] a_0 x^{s - 1} + \sum_{n=1}^{\infty} \left[(3s + 3n - 2)(s + n)a_{n} - a_{n - 1} \right] x^{n + s - 1} = 0.
+\end{eqnarray*}
+Deste modo, temos que a equação indicial e dá forma $ s (3s - 2) + s = 0 $ onde os expoentes são as raízes indicias $s_1 = \frac{2}{3} $ e $s_2 = 0 $. Como
+\begin{equation}
+(3s + 3n - 2)(s + n)a_{n} - a_{n - 1} = 0, \ \ \ \\ (n \geq 0),
+\label{d1}
+\end{equation}
+Segue-se que, quando $ s_1 = \frac{2}{3} $ em (\ref{d1}),temos:
+\begin{center}
+$a_{n} = \frac{a_{n - 1}}{n(3n + 2)}; \ \ \ \ \ \ (n \geq 1)$
+\end{center}
+
+\begin{center}
+$ a_1 = \frac{a_0}{1 \times 5} = \frac{a_0}{5}  $
+\end{center}
+
+\begin{center}
+$ a_2 = \frac{a_1}{2 \times 8} = \frac{a_0}{2! 5 \times 8} $
+\end{center}
+
+\begin{center}
+$ a_3 = \frac{a_2}{3 \times 11} = \frac{a_0}{3! 5 \times 8 \times 11} $
+\end{center}
+
+\begin{center}
+$ \vdots $ 
+\end{center}
+
+\begin{center}
+$ a_n = \frac{a_0}{n! 5 \times 8 \times 11 \ldots (3n + 2)} $
+\end{center}
+Portanto, uma solução da série é
+
+\begin{center}
+\begin{itemize} 
+$ y_1 = x^{\frac{2}{3}} \left( a_{0} + a_{1} x + a_{2} x^{2} + \ldots \right)  = a_0 x^{\frac{2}{3}} \left[  1 + \sum_{n=1}^{\infty}\frac{1}{n! 5 \times 8 \times 11 \ldots (3n + 2)} x^{n} \right].  $
+\end{itemize}
+\end{center}
+
+Agora, quando $ s_2 = 0 $ em (\ref{d1}),temos:
+
+\begin{center}
+$a_{n} = \frac{a_{n - 1}}{n(3n - 2)}; \ \ \ \ \ \ (n \geq 1)$
+\end{center}
+
+\begin{center}
+$ a_1 = \frac{a_0}{1 \times 1} = a_0  $
+\end{center}
+
+\begin{center}
+$ a_2 = \frac{a_1}{2 \times 4} = \frac{a_0}{2! 1 \times 4} $
+\end{center}
+
+\begin{center}
+$ a_3 = \frac{a_2}{3 \times 7} = \frac{a_0}{3! 1 \times 4 \times 7} $
+\end{center}
+
+\begin{center}
+$ \vdots $ 
+\end{center}
+
+\begin{center}
+$ a_n = \frac{a_0}{n! 1 \times 4 \times 7 \ldots (3n - 2)} $
+\end{center}
+Portanto, a segunda solução da série é
+
+\begin{center}
+\begin{itemize} 
+$ y_2 = x^{0} \left( a_{0} + a_{1} x + a_{2} x^{2} + \ldots \right)  = a_0 x^{0} \left[ 1 + \sum_{n=1}^{\infty} \frac{1}{n! 1 \times 4 \times 7 \ldots (3n - 2)} x^{n} \right].  $
+\end{itemize}
+\end{center}
+Obtemos, assim, duas soluções linearmente independentes, podemos ainda demonstrar, pelo teste da razão, que ambas convergem para todos os valores de $ x $. Temos ainda, pelo princípio de superposição, que
+ 
+\begin{center}
+$y(x) = c_1 y_1 (x) + c_2 y_2 (x) =  c_1  \left[ x^{\frac{2}{3}} + \sum_{n=1}^{\infty}\frac{1}{n! 5 \times 8 \times 11 \ldots (3n + 2)} x^{n + \frac{2}{3}} \right] + c_2 \left[ 1 + \sum_{n=1}^{\infty} \frac{1}{n! 1 \times 4 \times 7 \ldots (3n - 2)} x^{n} \right]; \ \ \ |x| < \infty, $
+\end{center}
+é outra solução, essa combinação linear é a solução geral da equação diferencial em qualquer intervalo que não contenha a origem.
+\end{exe.}
+
+%===================================================================================================================   
+\subsection{Caso de Raízes Indicias que Diferem por um Inteiro Positivo: $ s_1 - s_2 \in \mathbb{N}   $}
+%===================================================================================================================
+
+Neste caso, o método de Frobenius para equação (\ref{eqfrob}), nos dá 
+
+1. Com $ s_1 $ (a maior raiz indicial), sempre fornece uma única solução
+\begin{eqnarray*}
+y_1 (x) = \sum_{n=0}^{\infty} a_n x^{n + s_1}, \ \ \ \ (a_n \neq 0)
+\end{eqnarray*}
+
+2. Como $ s = s_2 $ (a menor raiz indicial), sempre leva a uma das duas ocorrências:
+
+a) Ela não fornece nenhuma solução.
+
+b) Ela fornece a solução geral, que incluir, portanto, a solução correspondente á maior raiz $(s_1)$. Na forma: 
+\begin{eqnarray*}
+y(x) = c y_1 (x) ln x + \sum_{n=0}^{\infty} b_n x^{n + s_2}; \ \ \ \ (b_n \neq 0),
+\end{eqnarray*}
+em que $ c $ é uma constante que pode ser zero.
+
+\begin{exe.}
+Da ocorrência de 2(a). Encontraremos uma solução em série para a equação:
+\begin{eqnarray}
+x y'' + 3 y' - y = 0,
+\label{f}
+\end{eqnarray}
+pelo método de Frobenius, vamos supor
+\begin{eqnarray*}
+y(x) = \sum_{n=0}^{\infty} a_n x^{n + s}; \ \ \ \ (a_n \neq 0).
+\end{eqnarray*}
+Em seguida, derivado $ y(x) $, termo a termo e substituindo na equação (\ref{f}), obtemos:
+
+\begin{center}
+\begin{itemize}
+$ \sum_{n=0}^{\infty} (n + s - 1)(n + s)a_n x^{n + s - 1} + 3 \sum_{n=0}^{\infty} (n + s)a_n x^{n + s - 1} - \sum_{n=0}^{\infty} a_n x^{n + s} = 0. $
+\end{itemize}
+\end{center}
+Deslocando o índece $ n = n - 1 $, na terceira série, obtemos:
+
+\begin{center}
+\begin{itemize}
+$ \sum_{n=0}^{\infty} (n + s - 1)(n + s)a_n x^{n + s - 1} + 3 \sum_{n=0}^{\infty} (n + s)a_n x^{n + s - 1} - \sum_{n=1}^{\infty} a_{n - 1} x^{n + s - 1} = 0. $
+\end{itemize}
+\end{center}
+Logo,
+\begin{center}
+$ \left[( s - 1)s + 3s \right] a_0 x^{ s - 1} + \sum_{n=1}^{\infty} \left\lbrace \left[ (n + s - 1)(n + s) + 3 (n + s) \right] a_n  -  a_{n - 1} \right\rbrace x^{n + s - 1} = 0$.
+\end{center}
+Daí, 
+\begin{center}
+\begin{itemize}
+$ \left[ s (s + 2) \right] a_0 x^{s - 1} + \sum_{n=1}^{\infty} \left[(s + n + 2)(s + n)a_{n} - a_{n - 1} \right] x^{n + s - 1} = 0.$
+\end{itemize}
+\end{center}
+Deste modo, temos que a equação indicial é dá forma $ s (s + 2) = 0 $ onde os expoentes são as raízes indicias $s_1 = 0 $ e $s_2 = -2 $. Como
+\begin{equation}
+(s + n + 2)(s + n)a_{n} - a_{n - 1} = 0, \ \ \ \\ (n \geq 0),
+\label{d}
+\end{equation}
+Segue-se que, quando $ s_1 = -2 $ em (\ref{d}),temos:
+\begin{center}
+$ n(n - 2) a_n - a_{n - 1} = 0; \ \ \ \ \ \ (n \geq 1),$
+\end{center}
+Daí, podemos determinar sucessivamente coeficientes $ a_n $:
+
+\begin{center}
+$ a_1 = - a_0  $
+\end{center}
+
+\begin{center}
+$ 0 = a_1 = - a_0. $
+\end{center}
+Note, que $ a_0 = 0 $ é contrário a nossa hipótese para série (\ref{2.7}). Logo, não existe série associada á raiz indicial $ s -2 $.
+Agora, quando $ s_2 = 0 $ em (\ref{d}), temos:
+
+\begin{center}
+$ n(n + 2)a_n - a_{n - 1} = 0 \Rightarrow a_n = \frac{a_{n - 1}}{n(n + 2)}; \ \ \ \ \ \ (n \geq 1)$
+\end{center}
+
+\begin{center}
+$ a_1 = \frac{a_0}{1 \times 3} = \frac{2a_0}{3!}  $
+\end{center}
+
+\begin{center}
+$ a_2 = \frac{a_1}{2 \times 4} = \frac{2a_0}{4! 2} $
+\end{center}
+
+\begin{center}
+$ a_3 = \frac{a_2}{5 \times 3} = \frac{2a_0}{5! 3} $
+\end{center}
+
+\begin{center}
+$ \vdots $ 
+\end{center}
+
+\begin{center}
+$ a_n = \frac{2a_0}{(n + 2)! n} $
+\end{center}
+Portanto, a única solução linearmente independente na forma:
+\begin{center}
+\begin{itemize} 
+$ y(x) = x^{0} \left( a_{0} + a_{1} x + a_{2} x^{2} + \ldots \right)  =  a_0 x^{0} \left[ 1 + \sum_{n=1}^{\infty} \frac{2}{(n + 2)! n} x^n \right].  $
+\end{itemize}
+\end{center}
+\end{exe.}
+
+\begin{exe.}
+Da ocorrência de 2(b). Encontraremos a solução em série para a equação
+\begin{eqnarray}
+x^2 y'' + (x^2 + x) y' - y = 0.
+\label{312}
+\end{eqnarray}
+Pelo método de Frobenius, vamos supor
+\begin{eqnarray*}
+y(x) = \sum_{n=0}^{\infty} a_n x^{n + s}; \ \ \ \ (a_n \neq 0).
+\end{eqnarray*}
+Em seguida, derivado $ y(x) $, termo a termo e substituindo na equação (\ref{312}), obtemos:
+\begin{eqnarray*}
+\sum_{n=0}^{\infty} (n + s - 1)(n + s)a_n x^{n + s } + \sum_{n=0}^{\infty} (n + s)a_n x^{n + s + 1} + \sum_{n=0}^{\infty} (n + s)a_n x^{n + s} \\ - \sum_{n=0}^{\infty} a_n x^{n + s} = 0. 
+\end{eqnarray*}
+Deslocando o índece $ n = n - 1 $, na segunda série, obtemos:
+\begin{eqnarray*}
+ \sum_{n=0}^{\infty} (n + s - 1)(n + s)a_n x^{n + s } + \sum_{n=1}^{\infty} (n + s - 1)a_{n - 1} x^{n + s} + \sum_{n=0}^{\infty} (n + s)a_n x^{n + s} \\ - \sum_{n=0}^{\infty} a_n x^{n + s} = 0. 
+\end{eqnarray*}
+\begin{eqnarray*}
+\Rightarrow \left[ ( s - 1)s + s - 1 \right] a_0  x^{ s } \sum_{n=1}^{\infty} \left\lbrace \left[ (n + s - 1)(n + s) + (n + s) - 1 \right] a_n  + (n + s - 1) a_{n - 1} \right\rbrace \\  x^{n + s} = 0. 
+\end{eqnarray*}
+\begin{eqnarray*}
+\Rightarrow \left[ (s^2 - 1) \right] a_0 x^{s} + \sum_{n=1}^{\infty} \left[(s + n - 1)(s + n + 1)a_{n} + (n + s - 1) a_{n - 1} \right] x^{n + s} = 0.
+\end{eqnarray*}
+Deste modo, temos que a equação indicial e dá forma $ s^2 - 1 = 0 $ onde os expoentes são as raízes indicias $s_1 = 1 $ e $s_2 = - 1 $. Como
+
+\begin{equation}
+(s + n - 1) \left[ (s + n + 1)a_{n} + a_{n - 1} \right] = 0, \ \ \ \\ (n \geq 1),
+\label{g}
+\end{equation}
+Segue-se que, quando $ s = - 1 $ em (\ref{g}),temos:
+\begin{equation*}
+(n - 2) \left[  n a_{n} + a_{n - 1} \right] = 0, \ \ \ \\ (n \geq 1),
+\end{equation*}
+Daí, podemos determinar sucessivamente coeficientes $ a_n $:
+
+\begin{center}
+$ a_1 = - a_0  $
+\end{center}
+
+\begin{center}
+$ 0 \left[  2 a_{2} + a_{1} \right] = 0 \Rightarrow 0 = 0. $
+\end{center}
+Deste modo, $ a_{2} $ é arbitrário. Note que para os valores $ n \geq 3 $, temos:
+
+\begin{center}
+$a_n = \frac{- a_{n - 1}}{n}$
+\end{center}
+
+\begin{center}
+$a_3 = \frac{- a_{2}}{3} = \frac{- 2 a_2}{2 \times 3}$
+\end{center}
+
+\begin{center}
+$a_4 = \frac{- a_{3}}{4} = \frac{ 2 a_2}{2 \times 3 \times 4}$
+\end{center}
+
+\begin{center}
+$\vdots$
+\end{center}
+
+\begin{center}
+$a_n = \frac{(- 1)^{n} 2 a_2}{n!}$
+\end{center}
+Portanto, a série 
+
+\begin{center}
+\begin{itemize} 
+$ y(x) = a_{0} x^{- 1} + a_{1} x + a_{2} x^{2} + \ldots = a_0 \left( \frac{1}{x} - 1\right) + 2a_2 \left( \frac{x}{2!} - \frac{x^{2}}{3!} + \frac{x^3}{4!} -+ \ldots \right)   $
+\end{itemize}
+\end{center}
+é a solução geral da equação (\ref{312}), pois é a combinação linear das duas funções linearmente independentes $y_1(x) $ e $y_2(x) $, formada com as constantes arbitrárias $ a_0 $ e $ 2a_2 $. Não mostraremos aqui o cálculo com a maior raiz indícial, $ s = 1 $, onde verificaríamos a obtenção apenas $ y_1(x) $. Note ainda, que
+\begin{center}
+\begin{itemize} 
+$ y_2(x) =  \frac{x}{2!} - \frac{x^{2}}{3!} + \frac{x^3}{4!} -+ \ldots = \frac{\frac{x}{2!} - \frac{x^{2}}{3!} + \frac{x^3}{4!} -+ \ldots}{x} = \frac{e^{-x} - 1 + x}{x}. $
+\end{itemize}
+\end{center}
+Deste modo, se não for possível encontrar uma segunda solução em forma de série, podemos sempre usar do fato de que
+\begin{equation}
+y_2(x) = y_1(x) \int \frac{e^{- \int p(x)} dx }{y^{2}_1 (x)} dx,
+\label{s2}
+\end{equation}
+é também uma solução para a equação $ y'' + p(x)y' + q(x)y = 0,$ sempre quando $ y_1(x) $ for uma solução conhecida. Como mostraremos no próximo exemplo.
+\end{exe.}
+
+\begin{exe.}
+Vimos no Exemplo (3.3) que o método de Frobenius proporciona somente uma solução para a equação
+\begin{eqnarray*}
+xy'' + 3y' - y = 0.
+\end{eqnarray*} 
+De (\ref{s2}), obteremos agora a segunda solução, temos que 
+\begin{equation}
+ y_1 = \sum_{n=0}^{\infty} \frac{2}{(n + 2)!n!} x^n = 1 + \frac{1}{3} x + \frac{1}{24} x^2 + \frac{1}{360} x^3 + \ldots,  
+\label{s1}
+\end{equation}
+deste modo, 
+\begin{eqnarray*}
+y_2(x) = y_1(x) \int \frac{e^{- \int \frac{3}{x}} dx }{y^{2}_1 (x)} dx = y_1(x) \int \frac{e^{- \int \frac{3}{x}} dx }{\left[ 1 + \frac{1}{3} x + \frac{1}{24} x^2 + \frac{1}{360} x^3 + \ldots \right]^{2}}
+\end{eqnarray*}
+\begin{eqnarray}
+ \ \ \ = y_1(x) \int \frac{ dx }{ x^{3} \left[ 1 + \frac{2}{3} x + \frac{7}{36} x^2 + \frac{1}{30} x^3 + \ldots \right]}.
+\label{j}
+\end{eqnarray}
+Mas, temos ainda da divisão, 
+\begin{eqnarray*}
+\frac{1}{1 + \frac{2}{3} x + \frac{7}{36} x^2 + \frac{1}{30} x^3 + \ldots} = \left[  a_{0} + a_{1} x + a_{2} x^{2} + a_{3} x^{3} + \ldots + a_{n} x^{n} + \ldots \right] 
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\Rightarrow 1 = \left[ 1 + \frac{2}{3} x + \frac{7}{36} x^2 + \frac{1}{30} x^3 + \ldots \right] \left[  a_{0} + a_{1} x + a_{2} x^{2} + a_{3} x^{3} + \ldots + a_{n} x^{n} + \ldots \right] 
+\end{eqnarray*}
+  
+\begin{eqnarray*}
+ \ \ \ = 1 a_{0} + \left( 1 a_{1} + a_{0} \frac{2}{3} \right) x + \left( 1 a_2 - \frac{2}{3} \frac{2}{3} + 1 \frac{7}{36} \right) x^2 + \ldots, 
+\end{eqnarray*}
+o seguinte sistema:
+$$  
+\left\{
+\begin{array}{ccccccccccc}
+a_0  & = & 1 \\
+a_1 + a_0 \frac{2}{3} & = & 0 \\
+a_2 - \frac{4}{9} + \frac{7}{37} & = & 0 \\  
+\end{array}
+\right.
+\\ \\   
+\Rightarrow \left\{
+\begin{array}{ccccccccccc}
+a_0 & = & 1 \\
+a_1 & = & - \frac{2}{3} \\
+a_2 & = & \frac{1}{4} \\ 
+\end{array}
+\right.
+$$
+Substituindo todos $ a_{n}$ obtidos na equação (\ref{j}). Ficamos agora com:
+\begin{eqnarray*}
+ y_2(x) = y_1(x) \int \frac{ 1 }{ x^{3}} \left[ 1 - \frac{2}{3} x + \frac{1}{4} x^2 + \ldots \right] dx.
+\end{eqnarray*}
+Segue-que, que
+\begin{eqnarray*}
+ y_2(x) = y_1(x) \int \left[ \frac{ 1 }{ x^{3}} - \frac{2}{3 x^2} + \frac{1}{4 x} + \ldots \right] dx.
+\end{eqnarray*}
+\begin{eqnarray*}
+\Rightarrow y_2(x) = y_1(x) \left[ - \frac{ 1 }{ 2 x^{2}} + \frac{2}{3 x} + \frac{1}{4} ln x + \ldots \right],
+\end{eqnarray*}
+ou
+\begin{eqnarray*}
+\Rightarrow y_2(x) = \frac{1}{4} y_1(x) ln x + y_1(x) \left[ - \frac{ 1 }{ 2 x^{2}} + \frac{2}{3 x} + \ldots \right].
+\end{eqnarray*}
+
+Logo, no intervalo $ (0, \infty) $, a solução geral é
+\begin{eqnarray*}
+ y(x) =  c_1 y_1(x) + c_2 \left[ \frac{1}{4} y_1(x) ln x + y_1(x) \left(  - \frac{ 1 }{ 2 x^{2}} + \frac{2}{3 x} + \ldots \right) \right],
+\end{eqnarray*}
+em que $ y_1(x) $ é definido por (\ref{s1}).
+\label{exe36}
+\end{exe.}
+%===================================================================================================================   
+\subsection{Caso de Raízes Indicias Iguais: $ s = s_{1} = s_{2} $}
+%===================================================================================================================
+
+Neste caso, como $ s = s_{1} = s_{2} $, então teremos sempre uma única solução pelo método de Frobenius para (\ref{eqfrob}), na qual $ s $ é igual ao único valor da reais indicial.
+\begin{eqnarray*}
+y_1 (x) = \sum_{n=0}^{\infty} a_n x^{n + s}; \ \ \ \ (a_n \neq 0).
+\end{eqnarray*}
+A segunda solução é análoga ou procedimento feito no estudo da equação Cauchy-Euler. Deste modo
+\begin{eqnarray*}
+y_2 (x) = y_1 (x) ln x + \sum_{n=0}^{\infty} b_n x^{n + s_2}; \ \ \ \ (b_n \neq 0),
+\end{eqnarray*}
+sempre contém um logaritmo.
+\begin{exe.}
+Encontraremos uma solução em série para equação 
+\begin{eqnarray}
+x y'' + y' - 4 y = 0.
+\label{m}
+\end{eqnarray}
+Supomos um solução na forma 
+\begin{eqnarray*}
+y(x) = \sum_{n=0}^{\infty} a_n x^{n + s}; \ \ \ \ (a_n \neq 0).
+\end{eqnarray*}
+Em seguida, derivado $ y(x) $, termo a termo e substituindo na equação (\ref{m}), obtemos:
+\begin{center}
+$ x y'' + y' - 4 y = \sum_{n=0}^{\infty} (n + s - 1)(n + s)a_n x^{n + s - 1} + \sum_{n=0}^{\infty} (n + s)a_n x^{n + s + 1} +  - 4 \sum_{n=0}^{\infty} a_n x^{n + s} = 0. $
+\end{center}
+Deslocando o índece $ n = n - 1 $, na terceira série, obtemos:
+\begin{center}
+\begin{itemize}
+$ \sum_{n=0}^{\infty} (n + s - 1)(n + s)a_n x^{n + s - 1} + \sum_{n=0}^{\infty} (n + s)a_n x^{n + s - 1} +  - 4 \sum_{n=1}^{\infty} a_{n - 1} x^{n + s - 1} = 0. $
+\end{itemize}
+\end{center}
+
+\begin{center}
+$ \Rightarrow \left[ ( s - 1)s + s \right] a_0  x^{ s - 1 } + \sum_{n=1}^{\infty} \left\lbrace \left[ (n + s - 1)(n + s) + (n + s) \right] a_n - 4 a_{n - 1} \right\rbrace  x^{n + s - 1} = 0. $
+\end{center}
+
+\begin{center}
+\begin{itemize}
+$\Rightarrow s^2 a_0 x^{s - 1} + \sum_{n=1}^{\infty} \left[(s + n)^{2} a_{n} - 4 a_{n - 1} \right] x^{n + s - 1} = 0.$
+\end{itemize}
+\end{center}
+Note que $ s = 0 $ é o único valor para o expoente das raízes indicias $s_1 $ e $s_2 $. Como
+\begin{equation}
+(s + n)^{2} a_{n} - 4 a_{n - 1} = 0, \ \ \ \\ (n \geq 1),
+\label{n}
+\end{equation}
+Segue-se que, quando $ s = 0 $ em (\ref{n}), obteremos somente uma solução correspondendo a os coeficientes $ a_n $, que vamos determinar sucessivamente pela iteração de:
+\begin{equation*}
+a_n = \frac{4 a_{n - 1}}{n^{2}}, \ \ \ \\ (n \geq 1),
+\end{equation*}
+desse modo, temos:
+
+\begin{center}
+$ a_1 = \frac{4 a_{0}}{1^{2}} $
+\end{center}
+
+\begin{center}
+$a_2 = \frac{4 a_{1}}{n^{2}} = \frac{4^2 a_{0}}{(1 \times 2)^{2}}$
+\end{center}
+
+\begin{center}
+$a_3 = \frac{4 a_{2}}{3^{2}} = \frac{4^3 a_{0}}{(1 \times 2 \times 3)^{2}}$
+\end{center}
+
+\begin{center}
+$\vdots$
+\end{center}
+
+\begin{center}
+$a_n = \frac{4^n a_{0}}{(n!)^{2}}$
+\end{center}
+Portanto, o resultado é 
+\begin{eqnarray}
+y_1 (x) = a_0 \sum_{n=0}^{\infty} \frac{4^n a_{0}}{(n!)^{2}} x^n; \ \ \ \ (|x| < \infty).
+\label{p}
+\end{eqnarray} 
+Para obtermos a segunda solução linearmente independente, façamos $ a_0 = 1$ em (\ref{p}) e então usando a fórmula (\ref{s2}), teremos:
+\begin{eqnarray*}
+y_2(x) = y_1(x) \int \frac{e^{- \int p(x)} dx }{y^{2}_1 (x)} dx = y_1(x) \int \frac{e^{- \int \frac{1}{x}} dx }{y^{2}_1 (x)} dx = y_1(x) \int \frac{e^{- \int \frac{1}{x}} dx }{\left[ 1 + 4 x + 4 x^2 + \frac{19}{9} x^3 + \ldots \right]^{2}}.
+\end{eqnarray*}
+Deste modo, repetindo o mesmo procedimento do exemplo anterior, obteremos agora:
+\begin{eqnarray*}
+ y_2(x) = y_1(x) ln x + y_1(x) \left[ - 8 x + 20 x^2 - \frac{1472}{27} x^3 + \ldots \right].
+\end{eqnarray*}
+Logo, no intervalo $ (0, \infty) $, a solução geral é
+\begin{eqnarray*}
+ y(x) =  c_1 y_1(x) + c_2 \left[ \frac{1}{4} y_1(x) ln x + y_1(x) \left(   - 8 x + 20 x^2 - \frac{1472}{27} x^3 + \ldots \right) \right],
+\end{eqnarray*}
+em que $ y_1(x) $ é definido por (\ref{p}).
+
+\end{exe.}
+
+
+%==================================================================================
+\section{Equação de Bessel}
+\label{Bessel}
+%================================================================================== 
+
+Uma das mais importantes EDOs em estudos avançado de matemática aplicada à física e a engenharia é a \textbf{equação de Bessel}. Vamos agora, direcionar nossos estudos para a solução (na forma de série infinita) da equação diferencial:
+\begin{eqnarray}
+x^2 y'' + x y' + (x^2 - \nu^2) y = 0; \ \ \ \ \ \ (\nu \geq 0),
+\label{bessel}
+\end{eqnarray} 
+chamada de \textbf{Equação de Bessel de ordem $ \nu $}. Vamos supor $ \nu \geq 0 $, onde $ \nu $ e um número real. Por simplicidade, iremos considerar apenas o intervalo $ (x > 0) $
+
+%==================================================================================
+\subsection{Solução para a Equação de Bessel}
+\label{FBessel}
+%================================================================================== 
+
+Como mencionamos antes a equação de Bessel (veja o exemplo \ref{bb}) não possui uma solução de forma fechada, no entanto, $ x_0 = 0 $ é um ponto singular regular da equação. Desse modo, devemos procurar soluções em séries infinitas usando o \textbf{método de Frobenius}, ou seja, aplicado o teorema 2.4. Dessa forma, vamos supor uma solução da forma: 
+\begin{eqnarray*}
+y(x) = \sum_{n=0}^{\infty} a_n x^{n + s}; \ \ \ \ (a_n \neq 0).
+\end{eqnarray*}
+Em seguida, derivado $ y(x) $, termo a termo e substituindo $ y(x) $ e suas derivadas na equação (\ref{bessel}), obtemos:
+\begin{eqnarray*}
+\sum_{n=0}^{\infty} (n + s - 1)(n + s)a_n x^{n + s} + \sum_{n=0}^{\infty} (n + s)a_n x^{n + s} + \sum_{n=0}^{\infty} a_n x^{n + s + 2} - \nu^2 \sum_{n=0}^{\infty} a_n x^{n + s} = 0.
+\end{eqnarray*}
+Deslocando o índece $ n$ para $ n - 2 $, na terceira série:
+\begin{eqnarray*}
+\sum_{n=0}^{\infty} a_n x^{n + s + 2} = \sum_{n=2}^{\infty} a_{n - 2} x^{n + s}.
+\end{eqnarray*}
+Deste modo, obtemos a série:
+\begin{eqnarray*}
+ a_0 \left[ s (s - 1) + s - \nu^2 \right] x^s +  a_1 \left[ (1 + s)(1 + s - 1) + (1 + s) - \nu^2 \right] x^{1 + s} + \\ \sum_{n=2}^{\infty} \left\lbrace a_n  \left[ (n + s)(n + s - 1) + (n + s) - \nu^2 \right] + a_{n - 2} \right\rbrace  x^{n + s} = 0. 
+\end{eqnarray*}
+Note que obtemos uma fórmula geral para todo $ s $:
+\begin{eqnarray}
+a_0 \left[ s (s - 1) + s - \nu^2 \right]; \ \ (n = 0), \\
+\label{3.21}
+\end{eqnarray}
+\begin{eqnarray}
+a_1 \left[ (1 + s)(1 + s - 1) + (1 + s) - \nu^2 \right]; \ \ (n = 1), \\
+\label{3.22}
+\end{eqnarray}
+\begin{eqnarray}
+a_n  \left[ (n + s)(n + s - 1) + (n + s) - \nu^2 \right] + a_{n - 2}; \ \ (n \geq 2).  
+\label{323}
+\end{eqnarray}
+De (\ref{3.21}), assumindo $ a_0 \neq 0 $, obtemos a chamada \textit{equação indicial}:
+\begin{eqnarray*}
+s^2 - \nu^2 = 0.
+\end{eqnarray*} 
+Logo as raízes indiciais são $ s_{1} = \nu $ e $ s_{2} = - \nu $. Note que tanto para $ s = \nu $ como $ s = - \nu $ em (\ref{3.22}), temos:
+Se $ \nu \neq \lbrace \frac{1}{2}, \frac{- 1}{2} \rbrace $, então $ a_1 = 0 $. Escolhendo $ s_{1} = \nu $ em (\ref{323}), podemos reescrever-lá: 
+\begin{eqnarray}
+   a_{n} = - \frac{a_{n - 2}}{n(n + 2 \nu)}; \ \ \ \ \ \ \ \ (n \geq 2).
+\label{324}    
+\end{eqnarray}
+Deste modo, a escolha $ a_1 = 0 $ em (\ref{324}) implica $ a_3 = a_5 = a_7 = \ldots = 0 $.
+Vamos agora tirar a relação de recorrência entre os coeficientes par.
+Fazendo $ n = 2k $ em (\ref{324}), obtemos:
+\begin{eqnarray*}
+   a_{2k} = - \frac{ a_{2k - 2}}{2^2k(k + \nu)}; \ \ \ \ \ \ \ \ (k \geq 1).    
+\end{eqnarray*}
+Deste modo, 
+\begin{eqnarray*}
+a_{2} & = & - \frac{ a_{0}}{2^2 \times 1(1 + \nu)}, \\     
+a_{4} & = & - \frac{ a_{2}}{2^2 \times 2(2 + \nu)} = \frac{ a_{0}}{2^4 \times 1 \times 2 (1 + \nu) (2 + \nu)}, \\    
+a_{6} & = & - \frac{ a_{4}}{2^2 \times 3(3 + \nu)} = - \frac{ a_{0}}{2^6 3!(1 + \nu)(2 + \nu)(3 + \nu)}, \\   
+\end{eqnarray*}
+e assim por diante. De maneira que
+\begin{eqnarray}
+a_{2k} = \frac{(- 1)^r  a_{0}}{2^{2r} r! (r + \nu) \ldots (k + \nu)}; \ \ \ \ \ \ \ (k \geq 1).
+\label{zz}    
+\end{eqnarray}
+Mostraremos esta última relação por indução finita. Note que para $ r = 1 $ em (\ref{zz}), vale. De fato, pois
+\begin{eqnarray*}
+a_{2k} = - \frac{ a_{0}}{2^2 \times 1 (1 + \nu)} = a_2   
+\end{eqnarray*}
+Suponha que é verdade para $ r = k $, isto é
+\begin{eqnarray}
+a_{2k} = \frac{(- 1)^k  a_{0}}{2^{2k} k! (1 + \nu) \ldots (k + \nu)}. 
+\label{xx}   
+\end{eqnarray}
+Vamos provar que vale para $ r = k + 1 $. De fato, pois
+\begin{eqnarray*}
+a_{2k + 2} = \frac{-  a_{2n}}{2^2(n + 1)(n + 1 + \nu)}.    
+\end{eqnarray*}
+Por hipótese, temos $ r = k $ vale, segue-se que
+\begin{eqnarray*}
+a_{2(k + 1)} = - \frac{1}{2^2(k + 1)(k + 1 + \nu)} \frac{(- 1)^k  a_{0}}{2^{2k} k! (1 + \nu) \ldots (k + \nu)}.     
+\end{eqnarray*}
+Note que $ (k + 1)k! = (k + 1)! $. Deste modo
+\begin{eqnarray*}
+a_{2(k + 1)} =  \frac{(- 1)^{k + 1}  a_{0}}{2^{(2k + 1)} (k + 1)! (k + 1 + \nu)(k + \nu) \ldots (1 + \nu)}.     
+\end{eqnarray*}
+Como queríamos provar.
+Logo, a \textbf{primeira solução} é:
+\begin{eqnarray}
+y_1(x) = \sum_{k=0}^{\infty} \frac{(- 1)^k  a_{0} x^{2k + \nu}}{2^{2k} k! (1 + \nu) \ldots (k + \nu)}; \ \ \ \ \ k = 1, 2, \ldots.
+\label{xxx}   
+\end{eqnarray} 
+%=====================================================================================================
+\subsection{Função de Bessel de Primeira Espécie $ J_\nu(x) $ para Inteiros Não-Negativos}
+%=====================================================================================================
+
+%Os valores inteiros de $ s_1 = \nu $ obtemos em geral:
+%\begin{eqnarray}
+%a_{2k} = \frac{(- 1)^k  a_{0}}{2^{2k} k! (1 + \nu) \ldots (k + \nu)}; \ \ \ \ \ k = 1, 2, \ldots.
+%\label{xxx}   
+%\end{eqnarray} 
+Como $ a_0 $ é arbitrário. Se $ \nu \in \mathbb{N} $, uma escolha possível seria $ a_0 = 1 $, porém o mais prático vem a ser, então:
+\begin{equation}
+a_0 = \frac{1}{2^{\nu} \nu!},
+\label{iv}
+\end{equation}
+devido ao fato de $ \nu! (\nu + 1) \cdots (\nu + k) = (k + \nu)! $ em (\ref{xxx}). E assim obteremos, simplesmente, a solução particular de (\ref{bessel}):  
+\begin{eqnarray}
+y_1(x) = \sum_{k=0}^{\infty} \frac{(- 1)^k x^{2k + \nu}}{2^{2k + \nu} k!(k + \nu)!}; \ \ \ \ \ k = 1, 2, \ldots.
+\label{xxxx}   
+\end{eqnarray}
+ %A escolha  solução (\ref{iv}), no caso $ \nu $  e com $ s_1 = \nu = m $, obtemos da solução $ y(x) $ uma solução particular de (\ref{bessel}). 
+Denotaremos aqui por $ J_\nu (x) $ as funções dada por:
+
+\begin{eqnarray*}
+J_{\nu} (x) =  x^{\nu} \sum_{k=0}^{\infty} \frac{(- 1)^k x^{2k}}{2^{2k + \nu} k!(\nu + k)!}.
+\end{eqnarray*}
+$ J_{\nu} (x) $ é chamada de \textbf{função de Bessel de primeira espécie} de ordem $ \nu $.
+
+%=====================================================================================================
+\subsection{Função de Bessel de Primeira Espécie $ J_{\nu}(x) $ para Inteiros $ \nu \geq 0 $}
+%=====================================================================================================
+
+Estenderemos nossos estudos em inteiros para quaisquer valores de $ \nu \geq 0 $. Neste caso, é uma prática padrão escolher para $ a_0 $ um valor específico,
+\begin{eqnarray*}
+a_0 = \frac{1}{2^{\nu} \Gamma (1 + \nu)},
+\end{eqnarray*}
+em que $ \Gamma (1 + \nu) $ é a função Gama (veja em \cite{engenharia}). Como ele possui a conveniente propriedade $ \Gamma (1 + \alpha) = \alpha \Gamma (\alpha) $. Deste modo, podemos escrever (\ref{xx}) como:
+\begin{eqnarray*}
+a_{2k} & = & \frac{(- 1)^k}{2^{2k + \nu} k! (1 + \nu) \ldots (k + \nu) \Gamma (1 + \nu)} \\   
+& = &\frac{(- 1)^k}{2^{2k + \nu} k! \Gamma (1 + \nu + k)}; \ \ \ \ \ (k \geq 0).    
+\end{eqnarray*}
+Logo, uma solução é:
+\begin{eqnarray*}
+y(x) = \sum_{k=0}^{\infty} a_{2k} x^{2k + \nu} = \sum_{k=0}^{\infty} \frac{(- 1)^k}{ k! \Gamma (k + 1 + \nu )} \left( \frac{x}{2} \right)^{2 k + \nu}.
+\end{eqnarray*}
+A série convergente pelo menos no intervalo $ \left[ 0, \infty \right)  $. Esta é denotada por $ J_{\nu} (x) $:
+\begin{eqnarray}
+J_{\nu} (x) = \sum_{k=0}^{\infty} \frac{(- 1)^k}{ k! \Gamma (k + 1 + \nu )} \left( \frac{x}{2} \right)^{2 k + \nu}.
+\label{Jnu}
+\end{eqnarray}
+$ J_{\nu} (x) $ é chamada de \textbf{função de Bessel de primeira espécie} de ordem $ \nu $.
+
+\begin{exe.}
+\textbf{Funções de Bessel $ J_{ 0}(x)$ e $ J_{1}(x)  $}. Os gráficos de $ J_{ 0}(x)$ e $ J_{1}(x)  $ estão representados na Figura \ref{f3.1}. Temos que para $ \nu = 0 $ em (\ref{Jnu}) a função de Bessel é de ordem 0 ($ J_{ 0}(x)$) , isto seja
+\begin{eqnarray}
+J_{0} (x) & = & \sum_{n=0}^{\infty} \frac{(- 1)^n}{ n! \Gamma (1 + n)} \left( \frac{x}{2} \right)^{2 n} \nonumber \\ & = & \sum_{n=0}^{\infty} \frac{(- 1)^n x^{2 n}}{2^{2 n}( n!)^2}; \ \ \ \ n \geq 1,
+\label{j00}
+\end{eqnarray}
+que é similar á função cosseno. E de $ \nu = 1 $ em (\ref{Jnu}) a função de Bessel é de ordem 1 ($ J_{ 0}(x)$) , isto seja
+\begin{eqnarray}
+J_{1} (x) & = & \sum_{n=0}^{\infty} \frac{(- 1)^n}{ n! \Gamma (1 + 2)} \left( \frac{x}{2} \right)^{2 n + 1} \nonumber \\ & = & \sum_{n=0}^{\infty} \frac{(- 1)^n x^{2 n + 1}}{2^{2 n + 1}( n + 1!)^2}; \ \ \ \ n \geq 1,
+\end{eqnarray}
+que é similar á função seno. Isto corre pelo fato que a função de Bessel pertence a uma classe de funções chamadas "quase periódicas".  
+\end{exe.}
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{FuncoesdeBesselPrimeiraEspecie.pdf}
+\caption{Funções de Bessel primeira especie $J_0 $ e $ J_1$.}
+\label{f3.1}
+\end{figure} 
+ 
+%=====================================================================================================
+\subsection{Solução Geral para Valores Não-Inteiros de $\nu$. Solução $J_{- \nu}$}
+%=====================================================================================================
+
+Dada uma equação de Bessel, para termos uma solução geral, além de $ J_{\nu} $, precisamos também de uma segunda solução linearmente independente de $ J_{\nu} $ (pois a equação de Bessel é uma EDO de segunda ordem). % Devemos ter cuidado ao escrever a solução geral para a equação de Bessel. 
+De modo que, se $ s = - \nu $, a segunda solução linearmente independente da EDO de Bessel depende de:
+
+$$ s_1 - s_2 = \left\{ \begin{array}{c}
+2 \nu \in \mathbb{N} \\
+2 \nu \not \in \mathbb{N}\\
+\end{array}
+\right.$$
+
+
+%=====================================================================================================
+\subsubsection*{Primeiro Caso}
+%=====================================================================================================
+
+Se $ 2 \nu \not \in \mathbb{N}  $, então para $ - \nu $, basta substituirmos $ \nu $ por $ - \nu $ em (\ref{Jnu}), ou seja, $ s_2 = - \nu $. Neste caso iremos obter a chamada \textbf{função de Bessel de primeira espécie} de ordem $ - \nu $:
+\begin{eqnarray}
+J_{- \nu} (x) = \sum_{k=0}^{\infty} \frac{(- 1)^k}{ k! \Gamma (1 - \nu + k)} \left( \frac{x}{2} \right)^{2 k - \nu}.
+\label{2Jn}
+\end{eqnarray}
+Dependendo do valor de $ \nu $, a função (\ref{2Jn}) pode conter potências negativas de $ x $ e então converge em $ \left( 0, \infty \right)  $, deste modo, se trocarmos $ x $ por $  |x| $, as séries dadas em (\ref{Jnu}) e (\ref{2Jn}) convergem em $ 0 < |x| < \infty $.
+
+
+Neste caso, as funções $J_{\nu}(x) $ e $J_{- \nu}(x) $ são soluções linearmente independentes em $\left( 0, \infty \right)  $ e a solução geral para (\ref{Bessel}) é da forma:
+\begin{eqnarray*}
+y(x) = c_1 J_{ \nu} (x) + c_2 J_{- \nu} (x); \ \ \ \ \ \ \ \ 0 < |x| < \infty.
+\end{eqnarray*}
+
+%\begin{itemize}
+%\item Se $ \nu = 0 $, as equações (\ref{Jn}) e (\ref{2Jn}) são iguais;
+%\item Se $ \nu > 0 $ e $s_1 - s_2 = \nu -(- \nu) = 2 \nu $ não é um inteiro, então o caso 1 da seção (\ref{Frobenius}), as funções $J_{\nu}(x) $ e $J_{- \nu}(x) $ são soluções linearmente independentes de pel(\ref{bessel}) em $\left( 0, \infty \right)  $, sua solução geral neste intervalo é dada por $ y = c_1 J_{ \nu}(x) + c_2 J_{- \nu}(x)  $;
+%\item Se $s_1 - s_2 = 2 \nu $ é um inteiro, então poderemos ter uma segunda solução em série para (\ref{Bessel}), distinguindo duas possibilidades:
+
+%a) Quando $ \nu = m = inteiro positivo $, a função $J_{- m}(x) $ definida por (\ref{2Jn}) e $J_{ m}(x) $ não são soluções linearmente independentes. Podemos mostrar que neste caso $J_{- m}(x) $ é um múltiplo de $J_{ m}(x) $.
+
+%b) Quando $ \nu = m = 2 \nu $ pode ser um inteiro quando $ \nu $ for metade de um inteiro ímpar, a função $J_{- m}(x) $ definida por (\ref{2Jn}) e $J_{ m}(x) $ são soluções linearmente independentes, isto é, a solução geral para (\ref{Bessel}) em $\left( 0, \infty \right)  $ é dada por $ y = c_1 J_{ \nu}(x) + c_2 J_{- \nu}(x)  $, $ \nu \neq inteiro $. 
+%\end{itemize}
+\begin{teo.}
+%\textbf{Solução Geral da Equação de Bessel}
+Se $ \nu $ não for número inteiro, uma solução geral da equação de Bessel para todo $ x \neq 0 $ é
+\begin{eqnarray}
+y = c_1 J_{ \nu}(x) + c_2 J_{- \nu}(x).
+\label{lll}
+\end{eqnarray}
+\end{teo.}
+\begin{obs.}
+Se $ \nu $ for inteiro, então teremos que (\ref{lll}) não é uma solução geral devido à dependência linear.
+\end{obs.}
+
+%=====================================================================================================
+\subsubsection*{Segundo Caso}
+%=====================================================================================================
+
+Se $ 2 \nu \in \mathbb{N}  $, então poderemos ter uma segunda solução na forma,
+\begin{eqnarray*}
+y_2(x) = c J_{ \nu} (x) ln (x) + \sum_{m=0}^{\infty} b_m x^{m - \nu}; \ \ \ \ (b_m \neq 0),
+\end{eqnarray*}
+em que $ c $ é uma constante que pode ser zero, isto é, para $ 2 \nu \in \mathbb{N}  $ podemos distinguir duas possibilidade:
+\begin{enumerate}
+\item  Quando $ \nu = n $, $ n \in \mathbb{Z}  $ pode ser um inteiro quando $ \nu $ for metade de um inteiro ímpar, as funções $J_{- n}(x) $ e $J_{ n}(x) $ são soluções linearmente independentes, isto é, a solução geral para (\ref{Bessel}) em $\left( 0, \infty \right)  $ é dada por $ y = c_1 J_{ \nu}(x) + c_2 J_{- \nu}(x)  $, $ \nu \neq inteiro $. 
+\item  Quando $ \nu = n =$ inteiro positivo, as funções $J_{- \nu}(x) $ e $J_{ \nu}(x) $ não são soluções linearmente independentes. Pode-se mostrar que neste caso $J_{- n}(x) $ é um múltiplo de $J_{ n}(x) $, veja o seguinte teorema: 
+\begin{teo.}{(\textbf{Dependência Linear das Funções de Bessel $ J_{ \nu}(x)$ e $ J_{- \nu}(x)  $ }) }
+Para números inteiros $ \nu = n $, as funções de Bessel $ J_{ \nu}(x)$ e $ J_{- \nu}(x)  $ são linearmente dependentes, porque
+\begin{eqnarray*}
+J_{ - n}(x) = (- 1)^{n} J_{n}(x) \ \ \ \ \ \ \ (n \geq 1).
+\end{eqnarray*} 
+\end{teo.}
+\end{enumerate}
+\begin{exe.}
+A solução Geral para a equação
+\begin{eqnarray*}
+x^2 y'' + x y' + \left( x^2 - \frac{1}{4} \right) y = 0,
+\end{eqnarray*}
+em  $\left( 0, \infty \right)  $ é $ y = c_1 J_{ \frac{1}{2}}(x) + c_2 J_{ - \frac{1}{2}}(x)  $. De fato, pois $
+v^2 = \frac{1}{4} \Rightarrow v = \pm \frac{1}{2}.$
+\end{exe.}
+
+%=====================================================================================================
+\subsection{Função de Bessel de Segunda Espécie $ Y_{\nu}(x)$}
+%=====================================================================================================
+
+Da última subseção, vimos que $ J_{\nu}(x)$ e $ J_{ - \nu}(x)$ formam uma base de soluções da equação de Bessel, desde que $ v $ não seja um número inteiro. Porém, quando $ \nu $ é inteiro, essas duas soluções são linearmente dependentes num intervalo qualquer, veja o teorema anterior. Logo, para que tenhamos uma solução geral também nos casos em que $ \nu = n $ é um inteiro, precisamos de uma segunda solução linearmente independente, além de $ J_{ \nu}(x)$. Essa solução é chamada de \textbf{função de Bessel de segunda espécie}, vamos denotar por $ Y_{n} $. Obteremos agora uma solução dessa função, começando com o caso $ n = 0 $.
+
+%=====================================================================================================
+\subsection{Função de Bessel de Segunda Espécie $ Y_{0}(x)$}
+\label{besselss}
+%=====================================================================================================
+
+Quando $ \nu = 0 $, podemos escrever a equação de Bessel como
+\begin{eqnarray}
+x y'' + y' + x y = 0.
+\label{y0}
+\end{eqnarray}
+Note que este é o Caso 3 da Seção (\ref{Frobenius}), onde a equação indicial possui uma dupla raiz $ s = 0 $. Desse modo, pelo método de Frobenius, teremos sempre uma solução, $ J_{0}(x)$, a segunda solução que desejamos deve ter a forma
+\begin{eqnarray}
+y_2 (x) = J_{0}(x) ln x + \sum_{m=1}^{\infty} b_m x^{m }; \ \ \ \ (b_m \neq 0).
+\label{2y2}
+\end{eqnarray}
+De fato, substituindo então $ y_2 $ e suas derivadas: 
+\begin{eqnarray*}
+y_2 ' = J_{0} ' ln x + \frac{J_0}{x} + \sum_{n=1}^{\infty} n b_n x^{n - 1 }
+\end{eqnarray*}
+e
+\begin{eqnarray*}
+y_2 '' = J_{0} '' ln x + \frac{2 J_0 '}{x} - \frac{J_0}{x^2} + \sum_{n=1}^{\infty} n(n - 1)b_n x^{n - 2 },
+\end{eqnarray*}
+em (\ref{y0}), obtemos:
+\begin{center}
+$x \left(  J_{0} '' ln x + \frac{2 J_0'}{x} - \frac{J_0}{x^2} + \sum_{n=1}^{\infty} n(n - 1)b_n x^{n - 2 } \right) + J_{0} ' ln x + \frac{J_0}{x} + \sum_{n=1}^{\infty} n b_n x^{n - 1 } + x  \left( J_{0} ln x + \sum_{n=1}^{\infty} b_n x^{n } \right) = 0$.
+\end{center}
+
+\begin{center}
+$ \Rightarrow x  J_{0} '' ln x + 2 J_0' - \frac{J_0}{x} + \sum_{n=1}^{\infty} n(n - 1)b_n x^{n - 1 } + J_{0} ' ln x + \frac{J_0}{x} + \sum_{n=1}^{\infty} n b_n x^{n - 1 } + x J_{0} ln x + \sum_{n=1}^{\infty} b_n x^{n + 1 } = 0$. 
+\end{center}
+Note que os termos $ \frac{J_0}{x} $ e $ - \frac{J_0}{x} $, se cancelam. Daí
+
+\begin{center}
+$  l n x \left[ x  J_{0} ''  + J_{0} ' + x J_{0} \right] + 2 J_0' + \sum_{n=1}^{\infty} n(n - 1)b_n x^{n - 1 }  + \sum_{n=1}^{\infty} n b_n x^{n - 1 }  + \sum_{n=1}^{\infty} b_n x^{n + 1 } = 0$. 
+\end{center}
+Note que, a soma dos termos entre corchetes é zero. De fato, pois $ J_0 $ é uma solução de (\ref{y0}). Deste modo ficamos agora com 
+
+\begin{center}
+$  2 J_0' + \sum_{n=1}^{\infty} n(n - 1)b_n x^{n - 1 }  + \sum_{n=1}^{\infty} n b_n x^{n - 1 }  + \sum_{n=1}^{\infty} b_n x^{n + 1 } = 0$. 
+\end{center}
+somando a primeira e a segunda série, obtemos:
+\begin{eqnarray}
+ 2 J_0' + \sum_{n=1}^{\infty} n^2 b_n x^{n - 1 }  + \sum_{n=1}^{\infty} b_n x^{n + 1 } = 0.
+\label{bbb}   
+\end{eqnarray} 
+Lembrando que
+
+\begin{center}
+$  J_{0} (x) = \sum_{n=0}^{\infty} \frac{(- 1)^n x^{2 n}}{2^{2 n}( n!)^2} = 1 - \frac{x^2}{2^2 (1!)^2} + \frac{x^4}{2^4 (2!)^2} - \frac{x^6}{2^6 (3!)^2} +- \ldots $.
+\end{center}
+Segue-se que
+\begin{eqnarray*} 
+ J_{0}' (x) & = & - \frac{2x}{2^2 (1!)^2} + \frac{4x^3}{2^4 (2!)^2} - \frac{6x^5}{2^6 (3!)^2} +- \ldots \\ \\ & = & - \frac{2x}{2^{2} (1!)^2} + \frac{2. 2x^3}{2^{2.2} (2!)^2} - \frac{2 . 3 x^5}{2^{2.3} (3!)^2} +- \ldots \\ \\& = & \sum_{n=1}^{\infty} \frac{(- 1)^n 2n x^{2 n - 1}}{2^{2 n}( n!)^2} =  \sum_{n=1}^{\infty} \frac{(- 1)^n x^{2 n - 1}}{n!} \frac{2}{2^{2n}} \frac{n}{n!}.
+\end{eqnarray*}
+Usando $ \frac{n!}{n} = (n - 1)! $ ficamos com 
+\begin{eqnarray}
+J_{0}' (x) =\sum_{n=1}^{\infty} \frac{(- 1)^n x^{2 n - 1}}{2^{2 n - 1} n! (n - 1)!}
+\label{hh} 
+\end{eqnarray}
+Substituindo (\ref{hh}) na equação (\ref{bbb}), obtemos
+\begin{eqnarray}
+ 2 \sum_{n=1}^{\infty} \frac{(- 1)^n x^{2 n - 1}}{2^{2 n - 1} n! (n - 1)!} + \sum_{n=1}^{\infty} n^2 b_n x^{n - 1 }  + \sum_{n=1}^{\infty} b_n x^{n + 1 } = 0. 
+\label{zzzz}  
+\end{eqnarray}
+Vamos abrir as séries:
+
+\begin{eqnarray*}
+& 2 & \left( - \frac{2x}{2^{2.1} (1!)^2} + \frac{2. 2x^3}{2^{2.2} (2!)^2} - \frac{2 . 3 x^5}{2^{2.3} (3!)^2} +- \ldots \right) \\ \\
+& + & \left( b_1 x^0 + 4 b_2 x + 9 b_3 x^2 + 16 b_4 x^3 + 25 b_5 x^4 + 36 b_6 x^5 + \ldots \right) \\ \\
+& + & \left( b_1 x^2 + b_2 x^3 + b_3 x^4 + b_4 x^5 + b_5 x^6 + b_6 x^7 + \ldots \right) = 0
+\end{eqnarray*} 
+ 
+Note que: $ b_1 = 0 $.
+Segue-se:
+\begin{eqnarray*}
+9 b_3 + b_1 = 0 \Rightarrow 9 b_3 = 0 \Rightarrow b_3 = 0;
+\end{eqnarray*}
+\begin{eqnarray*}
+25 b_5 + b_3 = 0 \Rightarrow 25 b_5 = 0 \Rightarrow b_5 = 0.
+\end{eqnarray*}
+E assim por diante, temos que a soma dos termos $ b_m $, com subscrito ímpares são nulos. 
+
+Vamos agora trabalhar com as potências de $ x $ ímpares. Igualando a soma dos coeficientes de $ x $ a zero, isso nos dar
+\begin{center}
+$ 2 \left( - \frac{2}{2^{2.1} (1!)^2} \right) + 4 b_2 = 0 \Rightarrow  b_2 = \frac{1}{4} $.
+\end{center}
+Para outros valores dos $ b_n $, com subscrito pares, vamos tirar uma relação de recorrência entre coeficientes par de $ x $ em (\ref{zzzz}). Fazendo na primeira série $ 2m - 1 = 2k + 1 $, temos $ m = k + 1 $, na segunda série $ m - 1 = 2k + 1 $ e na terceira, $ m + 1 = 2k + 1 $. Portanto, obtemos 
+\begin{eqnarray}
+\frac{(- 1)^{k + 1}}{2^{2k} (k + 1)! k!} + (2k + 2)^2 b_{2k + 2} + b_{2k} = 0.
+\label{relpar}
+\end{eqnarray}
+Para $ k = 1 $, (\ref{relpar}) fornece
+\begin{center}
+$ \frac{1}{8} + 16 b_4 + b_2 = 0 \Rightarrow b_4 = - \frac{3}{128}$;
+\end{center}
+\begin{center}
+$\vdots$
+\end{center}
+\begin{center}
+$  b_{2m} = \frac{(- 1)^{m - 1}}{2^{2m} (m!)^2} \left( 1 + \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{m} \right) $.
+\end{center}
+Mostraremos a relação acima por indução finita. De fato, se $ m = 1 $, já mostramos que vale. Agora, suponha que é verdade para $ m = k$, isto é 
+\begin{center}
+$  b_{2k} = \frac{(- 1)^{k - 1}}{2^{2k} (k!)^2} \left( 1 + \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{k} \right) $.
+\end{center}
+Vamos então, provar que é verdade também para $ m = k + 1 $. De fato, pois de (\ref{relpar}), obtemos:
+\begin{eqnarray*}
+b_{2k + 2} = \left[  - \frac{(- 1)^{k + 1}}{2^{2k} (k + 1)! k!} - b_{2k} \right] \frac{1}{(2k + 2)^2} = 0.
+\end{eqnarray*}
+Por hipótese $ m = k $, vale, segue-se 
+\begin{eqnarray*}
+b_{2k + 2} = \left[  - \frac{(- 1)^{k + 1}}{2^{2k} (k + 1)! k!} - \frac{(- 1)^{k - 1}}{2^{2k} (k!)^2} \left( 1 + \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{k} \right) \right] \frac{1}{(2k + 2)^2} = 0.
+\end{eqnarray*} 
+Usando o fato que $ (k + 1)! k! = (k + 1)(k!)^2 $. Obtemos:
+\begin{eqnarray*}
+b_{2k + 2} & = & \left[ \frac{ - (- 1)^{k} (- 1)}{2^{2k} (k + 1)(k!)^2} - \frac{(- 1)^{k} (- 1)^{- 1}}{2^{2k} (k!)^2} \left( 1 + \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{k} \right) \right] \frac{1}{(2k + 2)^2} \\ & = & \frac{ (- 1)^{k}}{ (2k + 2)^2 2^{2k} (k + 1)(k!)^2} + \frac{(- 1)^{k}}{ (2k + 2)^2 2^{2k} (k!)^2} \left( 1 + \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{k} \right)\\  & = & \frac{(- 1)^{k}}{ (2k + 2)^2 2^{2k} (k!)^2} \left( 1 + \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{k} + \frac{1}{(K + 1)} \right) = 0.
+\end{eqnarray*}
+Note que 
+\begin{eqnarray}
+(2k + 2)^2 2^{2k} (k!)^2 & = & (4k^2 + 8k + 4)2^{2k} (k!)^2 \nonumber \\ & = & 2^{2k} 2^2(k^2 + 2k + 1) (k!)^2 \nonumber \\ & = & 2^{2k + 2} \left[  \left(  k + 1 \right) \right]^2.
+\end{eqnarray}
+Portanto, 
+\begin{eqnarray*}
+b_{2(k + 1)} = \frac{(- 1)^{k + 1 - 1}}{ 2^{2(k + 1)} \left[  \left(  k + 1 \right) \right]^2} \left( 1 + \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{k} + \frac{1}{(k + 1)} \right) \ \ \ \  (k = 1, 2, 3, \ldots)
+\end{eqnarray*}
+Como queríamos provar. Usando as notações curtas, para simplificar nosso estudo aqui consideremos 
+\begin{equation}
+h_1 = 1 \ \ \ \ \ \ \ h_m = 1 + \frac{1}{2} + \ldots + \frac{1}{m} \ \ \ \ \ \ (m = 2, 3, \ldots).
+\label{h1}
+\end{equation}
+e inserindo (\ref{h1}) e $ b_1 = b_3 = \ldots = 0 $ em (\ref{2y2}), obtemos o seguinte resultado
+\begin{eqnarray*}
+y_2 (x) & = & J_{0}(x) ln x + \sum_{m=1}^{\infty} b_m x^{m} \\ & = & J_{0}(x) ln x + \sum_{m=1}^{\infty} \frac{(- 1)^{m - 1} h_m }{2^{2m} (m!)^2} x^{m } x^{2m} \\ & = & J_{0}(x) ln x + \frac{1}{4} x^2 - \frac{3}{128} x^4 +- \ldots .
+\end{eqnarray*}
+
+Como $J_{0} $ e $y_{2} $ são funções linearmente independentes, elas formam uma base de (\ref{y0}) para $ x > 0 $. Naturalmente, obtemos uma outra solução base. Se substituirmos $ y_2 $ por uma solução particular independente na forma $ a( y_2 + bj_0) $, onde $ a \neq 0 $ e $ b $ são constantes, obetemos um elemento linearmente independente com $J_{0} $. É uma pratica escolhermos $ a = 2 / \pi $ e $ b = \gamma - l n 2 $, onde o número $ \gamma = 0,57721566490... $ é a \textbf{chamada constante de Euler}, que se define como o limite de 
+\begin{eqnarray*}
+1 + \frac{1}{2} + \ldots + \frac{1}{s} - l n s
+\end{eqnarray*}  
+à medida que $ s $ tende ao infinito. A solução particular assim obtida é chamada de \textbf{função de Bessel de segunda espécie} \textit{de ordem zero} (veja a figura \ref{f3.2}) ou \textbf{função de Neumann } \textit{de ordem zero}, sendo denotada por $ Y_0(x) $. Segue-se que
+\begin{eqnarray}
+Y_0(x)  = \frac{2}{\pi} \left[ J_0(x) \left(  l n \frac{x}{2} + \gamma \right)  + \sum_{n=1}^{\infty} \frac{(- 1)^{n - 1} h_n }{2^{2n} (n!)^2} x^{2n} \right] . 
+\label{n0} 
+\end{eqnarray} 
+Para pequenos valores de $ x > 0 $, a função $ Y_0(x) $ tem um comportamento parecido com o de $  l n x $, e $ Y_0(x) \rightarrow - \infty $ à medida que $ x \rightarrow 0 $.
+
+%=====================================================================================================
+\subsection{Solução Geral da Equação de Bessel: Funções de Bessel de Segunda Espécie $ Y_{n}(x)$}
+%=====================================================================================================
+
+Para $  \nu = n = 1, 2, \ldots, $ podemos obter uma segunda solução através de manipulações semelhantes às que fizemos para $ n = 0 $. Note que esse é  o Caso 2 da Seção (\ref{Frobenius}), onde as raízes indicias diferem por um inteiro, logo a solução também contém um termo logarítmico.
+Note que a situação não está ainda completamente satisfatória, porque a segunda solução é definida diferentemente, dependendo da ordem $ \nu $ ser ou não um número inteiro. Para darmos unidade ao formalismo, é desejável adotarmos uma segunda solução-padrão $ Y_{\nu}(x) $ para todo $ \nu $, consideremos:
+\begin{description}
+	\item[(i)] Quando $ \nu $ não é um inteiro, defina  
+\begin{eqnarray}
+ Y_{\nu}(x) = \frac{1}{\sin \nu \pi} \left[  J_{\nu}(x) \cos \nu \pi - J_{ - \nu} (x) \right];
+\label{7a} 
+\end{eqnarray}
+	\item[(ii)] Quando $ \nu $ é um inteiro, defina 
+\begin{eqnarray}
+ Y_n(x) = \lim_{\nu \to n} Y_{\nu}(x). 
+\label{7b}
+\end{eqnarray}
+\end{description}
+Essa função é chamada de \textbf{função de Bessel de segunda espécie} de ordem $ \nu $ ou \textbf{função de Nemann} de ordem $ \nu $, em que $ Y_n (x) $ não tem limite finito quando $ x \rightarrow 0$. A Figura \ref{f3.2} mostra $ Y_0(x)$ e $ Y_1(x)$.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{FuncoesdeBesselSegundaEspecie.pdf}
+\caption{Funções de Bessel segunda especie $Y_0 $ e $ Y_1$.}
+\label{f3.2}
+\end{figure} 
+
+Donde, $J_{n}(x) $ e $Y_{n}(x) $ são soluções da equação de Bessel linearmente independentes. Deste modo, o resultado é: 
+\begin{eqnarray}
+Y_n(x)  = \frac{2}{\pi} J_n(x) \left(  l n \frac{x}{2} + \gamma \right)  + \frac{x^n}{\pi} \sum_{m=0}^{\infty} \frac{(- 1)^{m - 1} \left( h_m + h_{m + n }\right)}{2^{2m + n} m! ( m + n )! } x^{mn} \nonumber \\ - \frac{x^{- n}}{\pi} \sum_{m=0}^{n - 1} \frac{(n - m - 1)!}{2^{2m - n} m!} x^{2m},
+\label{nyn}
+\end{eqnarray} 
+Onde $ x > 0$, $n = 0, 1, \cdots $ e [como em (\ref{h1})] $h_0 = 0 $, $ h_1 = 1 $,
+\begin{eqnarray*}
+ h_m = 1 + \frac{1}{2} + \ldots + \frac{1}{m} \ \ \ \ \ \ \ \ \ \ \ \ \ h_{m + n} = 1 + \frac{1}{2} + \ldots + \frac{1}{m + n}. 
+\end{eqnarray*}
+
+Consideremos os seguintes resultados:
+\begin{description}
+	\item[(i)] O limite (\ref{7b}) existe e pode ser mostrado, donde, $Y_{n} $ é uma solução da equação de Bessel para ordens infinitas,(veja a Ref.\cite{engenharia});
+	\item[(ii)] É possível mostrar que as funções $J_{n}(x) $ e $Y_{n}(x) $ são de fato soluções da equação de Bessel linearmente independentes para todo $ \nu $ e para $ x > 0$;
+	\item[(iii)] Dada uma ordem $ \nu $ não-inteiro, a função $Y_{\nu}(x) $ é uma solução de Bessel. De fato, pois para esses valores de $ \nu $, as soluções $J_{n}(x)$ e $J_{n}(x)$ são soluções linearmente independentes;  
+	\item[(iv)] Observe também, que em $ n = 0 $, a última soma em (\ref{nyn}) será $ 0 $.
+Além disso, podemos mostrar que 
+\begin{eqnarray*}
+Y_{- n}(x) = (-1)^n Y_{n}(x).  
+\end{eqnarray*}
+\end{description}
+Agora, podemos considerar como o principal resultado o seguinte Teorema: 
+
+\begin{teo.}{\textbf{Solução Geral da Equação de Bessel}}
+
+Uma solução geral da equação de Bessel para todos os valores de $ \nu $ e $ x > 0 $ é 
+\begin{equation}
+y(x) = c_1 J_{\nu}(x) + c_2 Y_{\nu}(x).
+\end{equation}
+\end{teo.} 
+
+Consideremos também, se a variável independente $ x $ em (\ref{bessel}) é substituída por $ xk $ ($ k $ constante), a equação resultante é (veja a Ref. \cite{calor}):
+\begin{eqnarray*}
+x_2 y '' + x y '+ ( k^2 x^2 - \nu^2) y = 0,
+\end{eqnarray*} 
+com solução geral 
+\begin{eqnarray*}
+y(x) = c_1 J_{\nu}(kx) + c_2 Y_{\nu}(kx).
+\end{eqnarray*} 

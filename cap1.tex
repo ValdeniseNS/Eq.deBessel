@@ -1,0 +1,694 @@
+\chapter{Método das Séries de Potências}
+
+Dada uma Equação Diferencial Ordinária Linear de Segunda Ordem com coeficientes constantes podemos encontrar soluções por funções elementares do Cálculo. Entretanto, nos perguntamos se é possível termos soluções por funções que conhecemos do Cálculo, para o caso de uma Equação Diferencial Ordinária Linear de Segunda Ordem com coeficientes variáveis. 
+
+Para que isso ocorra é necessário que a função $f$ possa ser representada por série de potências, isto é, $f$ é uma função especial.
+
+O objetivo desta seção é abrir caminho ao estudo principal deste trabalho, isto é, o estudo das séries de potências. 
+
+%==================================================================================
+\section{Séries de Potências}
+\label{secaosegunda}
+%==================================================================================
+
+Uma {\bf série de potências} em $(x - x_{0})$, ou série de potências centrada em $ x_{0} $ é uma série infinita da seguinte forma: 
+
+\begin{center}
+$ \sum_{n=0}^{\infty} a_{n}(x - x_{0})^{n}= a_{0} + a_{1}(x - x_{0}) + a_{2}(x - x_{0})^{2} + a_{3}(x - x_{0})^{3} + \ldots + a_{n}(x - x_{0})^{n}+ \ldots $,
+\end{center}
+onde $x$ é uma variável e $a_{0}, a_{1}, a_{2}, a_{3},\ldots$ são constantes chamadas de  \textbf{coeficientes} e $x_0$ é a constante chamada  \textbf{centro} da série. Em particular, uma série de potência centrada em $x_{0}= 0$ é uma série da forma
+
+\begin{center}
+$
+\sum_{n=0}^{\infty} a_{n}x^{n}= a_{0} + a_{1} x + a_{2} x^{2} + \ldots + a_{n} x^{n} + \ldots
+$.
+\end{center}
+Para nosso estudo vamos supor que todas as variáveis e constantes sejam reais.
+\subsection{Representação de Funções como Séries de Potências}
+O principal uso das séries de potência é fornece uma maneira de representar funções especiais.
+A soma da série anterior é uma função
+\begin{center}
+$ f(x) = a_{0} + a_{1} x + a_{2} x^{2} + \ldots + a_{n} x^{n} + \ldots, $
+\end{center}
+onde o domínio é o conjunto de todos os $ x $ para os quais a série converge.
+
+Em particular se $ a_{n} = 1 $ para todo $ n $, a série de potências se torna a série geométrica,
+
+\begin{center}
+$
+\sum_{n=0}^{\infty} x^{n}= 1 + x + x^{2} + \ldots + x^{n} + \ldots, 
+$
+\end{center} 
+onde o domínio de convergência é o conjunto $ S = \left\lbrace  x \in \mathbb{R}; \ \ |x|< 1 \right\rbrace $.
+%\begin{def.}
+%{\bf (Função Analítica Real )}
+%Uma função real $ f(x) $ é chamada de \textbf{analítica} num ponto $ x = x_0 $ se poder ser representada por uma série de potência de $ x - x_0 $ com raio de convergência $ R > 0 $.
+%\end{def.}
+
+Se $ f $ tiver uma representação (expansão) em série de potências em $ (x - x_0)$, isto é, se
+\begin{center}
+$ f(x) = \sum_{n=0}^{\infty} a_{n} (x - x_0)^{n}$, onde $|(x - x_0)| < r $,
+\end{center}
+então os coeficientes são dados pela fórmula 
+\begin{center}
+$ a_{n} = \frac{f^{(n)}(x_0)}{n!}. $
+\end{center}
+A série é chamada de \textbf{série de Taylor} para a função $ f $ em torno do ponto $ x = x_0. $
+
+\subsubsection{ Séries de Taylor e de Maclaurin}
+A \textbf{série de Taylor} da função $ f $ em torno de $ x = x_0, $ é dada por 
+\begin{eqnarray*}
+f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(x_0)}{n!} (x - x_0)^{n} = f(x_0) + \frac{f'(x_0)}{1!} (x - x_0) + \frac{f''(x_0)}{2!} (x - x_0)^{2} + \frac{f'''(x_0)}{3!} (x - x_0)^{3} + \ldots.
+\end{eqnarray*}
+
+Para o caso especial $ x_0 = 0, $ a série de Taylor recebe o nome especial de \textbf{Séries Maclaurin}.
+\begin{eqnarray*}
+f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!} (x )^{n} = f(0) + \frac{f'(0)}{1!} x + \frac{f''(0)}{2!} x^{2} + \frac{f'''(0)}{3!} (x)^{3} + \ldots .
+\end{eqnarray*}
+
+\begin{exe.}
+
+São exemplos de séries de potências as seguintes séries de Maclaurin
+\begin{description}
+\item a) $ \frac{1}{1-x} = \sum_{n=0}^{\infty} x^{n} = 1 + x + x^{2} + \ldots \ \  \ \ \ \ \ \ \left(|x|<1, \textbf{série geometrica} \right)$
+\item b) $ \frac{x}{1-x} = \sum_{n=1}^{\infty} x^{n} = x + x^2 + x^{3} + \ldots $
+\item c) $ e^{x} = \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \ldots $
+\item d) $ \sen(x) = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - + \ldots $
+\item e) $ \cos(x) = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^2}{4!} - + \ldots $
+
+\end{description}
+\end{exe.}
+
+
+\begin{obs.}
+Note que para o caso em que $ x_0 = 0 $, não temos nenhuma perda de generalidade da série, deste modo estudaremos a série na forma $ \sum_{n=0}^{\infty} a_{n} x^{n} $. 
+\end{obs.}
+%==================================================================================
+%\subsection{Proposição preliminar}
+%==================================================================================
+
+\begin{lem.}
+Se a série de potências $ \sum_{n=0}^{\infty} a_{n} x^{n} $ converge num certo ponto $ x = x_{0} \neq {0} $, ela converge absolutamente em todos os pontos $ x $ do intervalo $ |x| < |x_{0}| $; e se a série diverge em $ x = x_{0} $, ela diverge em todo $ x $ fora desse intervalo, isto é, em $ |x| > |x_{0}| $.
+\label{lem.11}
+\end{lem.}
+ 
+\begin{proof}
+Se a série $ \sum_{n=0}^{\infty} a_{n} x^{n} $ converge em $ x_{0} $, temos que seu termo geral tende a zero, ou seja,
+$  \lim a_{n} x_{0}^{n} = 0 $, e é limitado por uma constante $ S $. Donde
+\begin{center}
+$  |a_{n} x_{0}^{n}| \leq S $
+
+$ \Rightarrow |a_{n} x^{n}| = |a_{n} x_{0}^{n}| \left|\frac{x}{x_{0}} \right|^{n} \leq S \left| \frac{x}{x_{0}} \right|^{n} $
+
+$ \Rightarrow \frac{1}{S}|a_{n} x^{n}| \leq \left| \frac{x}{x_{0}} \right|^{n} $
+\end{center}
+Nessas condições podemos afirmar:
+como a série geométrica $ \sum_{n=0}^{\infty} \left|\frac{x}{x_{0}} \right|^{n} $ é convergente em $ |x| < |x_{0}| $; temos pelo teste da comparação que $ \sum_{n=0}^{\infty} |a_{n} x^{n}| $ também converge no intervalo $ |x| < |x_{0}| $. Note que se a série $ \sum_{n=0}^{\infty} a_{n} x^{n} $ diverge em $ x = x_{0} $, temos que a série dominada $ \sum_{n=0}^{\infty} \left|\frac{x}{x_{0}} \right|^{n} $ diverge também, o que é um absurdo.
+Portando, provamos que em $ x = x_{0} $ a série $ \sum_{n=0}^{\infty} a_{n} x^{n} $ teria de convergir, o que completa a demonstração. 
+\end{proof}
+
+\begin{teo.}
+A toda série de potências $ \sum_{n=0}^{\infty} a_{n} x^{n}, $ que converge em algum valor $ x' \neq 0 $ e diverge em algum outro valor $ x'' $, corresponde um número positivo r tal que a série converge absolutamente se $ |x| < r $ e diverge se $ |x| > r $.
+\end{teo.}
+
+\begin{proof}
+Se $ r $ é o supremo de $ |x| $, ou seja $ |x^{,}| \leq r $, com $ x $ variando entre os valores que a série converge. Temos que
+\begin{center}
+$ |x'| < r $ e $ r < |x''| $.
+\end{center} 
+De fato, se $ r > |x''| $, teríamos um x tal que $ |x''| < |x| \leq r $ (pois $ r $ é o supremo), e portanto a série converge em $ x $. Por outro lado, pelo lema \ref{lem.11} a série converge em $ |x''| $ o que é um absurdo. 
+Temos ainda que, se $ |x| < r $, existe um $ x_0 $ tal que $ |x| < |x_0| < r $, e a série converge em $ x_0 $. Logo, pelo lema \ref{lem.11} a série converge absolutamente em $ x $ e diverge em $ x $ no intervalo $ |x| > r $. Neste caso, basta considera o caso em que $ |x| = |x''| $, onde $ r $ não seria mais o supremo.   
+\end{proof}
+
+\subsubsection{Intervalo de Convergência. Raio de Convergência}
+
+Toda série de potência possui um \textbf{intervalo de convergência}. O intervalo de convergência são todos os valores $ x $ nos quais a série converge e para determiná-lo, usaremos o teste da razão,
+\begin{center}
+$ \lim_{n\rightarrow \infty} \left|\frac{ a_{n + 1} x^{n + 1}}{ a_{n} x^{n}} \right| = L, $ 
+\end{center} 
+desde que este limite exista. Pelo critério da razão, a série  $ \sum_{n=0}^{\infty} a_{n} x^{n} $ é absolutamente convergente se $ L < 1 $  e divergente se $ L > 1 $, sendo o caso extremo $ L = 1 $ analisado separadamente. Deste modo para determinar o intervalo de convergência, vamos aplicar o teste da razão,  no caso em que $ x \neq 0 $, pois em $ x = 0 $ todos os termos se anulam, exceto talvez o primeiro $ a_{0} $ que seria  o único valor para que a série converge, o que não tem interesse prático. Segue que 
+\begin{center}
+$ \lim_{n\rightarrow \infty} \left|\frac{ a_{n + 1} x^{n + 1}}{ a_{n} x^{n}} \right| = |x| \lim_{n\rightarrow \infty} \left|\frac{ a_{n + 1}}{ a_{n}} \right| = \begin{cases}
+|x| . 0 & < 1 \quad \\
+|x| . \infty & > 1 \quad \\
+|x| . M & \quad
+\end{cases}$ 
+\end{center}
+Logo temos três possibilidades para o limite:
+No primeiro caso a série pode convergir para outros valores de $ x $. Nesse caso $ r = \infty $. No segundo caso a série diverge para todo $ x \neq 0 $. Nesse caso $ r = 0 $. No terceiro caso a série converge para todo valor $ x \neq 0 $ tal que $ |x|. M < 1 \Rightarrow |x| < \frac{1}{M} $ e diverge para $ |x| . M > 1 \Rightarrow |x| > \frac{1}{M}.$
+
+Note que o teorema anterior não garante se nos extremos $ - r < x < r  $ a série converge. Mas, podemos afirmar que só faz sentido falar de série de potências dentro do seu intervalo de convergência. Pois só neste intervalo a série é uma função. Devido ao fato, que os estudo natural das séries de potência é o plano complexo e quando $ x $ varia em $ |x| < r $ é um círculo de centro na origem e raio $ r $. O número $ r $, apresentado no Teorema anterior, é chamado \textbf{raio de convergência} da série.   
+
+Por consequência do teste da Razão, podemos obtermos o \textbf{raio de intervalo da convergência} da seguinte forma, 
+\begin{center}
+$r = \frac{1}{M},  $
+\end{center} 
+ o que é o mesmo que
+\begin{center}
+ $ r = \lim_{n\rightarrow \infty} \left|\frac{ a_n}{ a_{n + 1}} \right| $
+\end{center}
+\begin{exe.}
+ Determine o intervalo de convergência e o raio de convergência da série 
+\begin{center}
+$ \sum_{n=0}^{\infty} \frac{(- 1)^{n} x^{n}}{n + 1}$.
+\end{center}
+Usando o teste da Razão, temos
+\begin{center}
+$ L = \lim_{n\rightarrow \infty} \left|\frac{ a_{n + 1}}{ a_n}\right| = \lim_{n\rightarrow \infty} \left|\frac{ x^{n + 1}}{n + 2} \frac{n + 1}{x^n}\right| = |x| \lim_{n\rightarrow \infty} \frac{1 + \frac{1}{n}}{1 + \frac{2}{n}} = |x|<1 $.
+\end{center}
+Logo $ -1 < x < 1 $. Analisando as extremidades, temos:
+no caso em que $ x = 1 $, temos
+ \begin{center}
+$ \sum_{n=0}^{\infty} \frac{(- 1)^{n}}{n + 1} $,
+\end{center}
+como $ \frac{1}{1 + n} $ é uma sequência decrescente e o $ \lim_{n\rightarrow \infty} \frac{1}{1 + n} = 0 $. Segue que pelo teste de Leibniz a série alternada \begin{center}
+$ \sum_{n=0}^{\infty} \frac{(- 1)^{n}}{n + 1} $,
+\end{center} converge.
+No caso em que $ x = -1 $, temos
+\begin{center}
+$ \sum_{n=0}^{\infty} \frac{(- 1)^{n} (- 1)^{n}}{n + 1} = \sum_{n=0}^{\infty} \frac{(- 1)^{2n}}{n + 1} = \sum_{n=0}^{\infty} \frac{1}{n + 1} $,
+\end{center}
+que é uma série harmônica que diverge.
+Portanto,
+\begin{center}
+$ \sum_{n=0}^{\infty} \frac{(- 1)^{n} x^{n}}{n + 1}, $
+\end{center}
+converge no intervalo $ \left( -1, 1 \right]  $ e o raio de convergência é $ r = 1 $. 
+\end{exe.}
+
+%==================================================================================
+\subsection{Operações com Séries de Potências}
+%==================================================================================
+As séries de potências podem ser combinadas através das operação de adição, multiplicação e divisão. Os procedimentos são semelhantes á maneira pelo qual somamos, multiplicamos ou dividimos dois polinômios. 
+
+\begin{prop.}
+Se as séries de potências
+\begin{center}
+$  f(x) = \sum_{n=0}^{\infty} a_{n} x^{n} \ \ \ \ e \ \ \ \ g(x) = \sum_{n=0}^{\infty} b_{n} x^{n} $
+\end{center}
+forem ambas convergentes para $ |x| < r $, então:
+\begin{center}
+ $  f(x) \pm g(x) = \sum_{n=0}^{\infty} \left( a_{n} \pm b_{n} \right)  x^{n} $; \end{center}
+onde a série resultante converge para $ |x| < r $, pelo menos. 
+\begin{center}
+ $  f(x) g(x) = \left[  \sum_{n=0}^{\infty} a_{n} x^{n} \right]  \left[  \sum_{n=0}^{\infty} b_{n} x^{n} \right] = \sum_{n=0}^{\infty} c_{n} x^{n} $\end{center} onde \begin{center} $ c_{n} = a_{0} b_{n} + a_{1} b_{n - 1} + a_{2} b_{n - 2} + \ldots + a_{n} b_{0} $, \end{center}
+onde a série resultante converge para $ |x| < r $, pelo menos.
+Se $ g(x) \neq 0 $, então podemos ter  $ \dfrac{f(x)}{g(x)} = \sum_{n=0}^{\infty} d_{n} x^{n}   $,
+onde na maiorias dos casos, os coeficientes $ d_{n} $ podem ser obtidos igualando-se os coeficientes correspondentes na seguinte equação: 
+\begin{center}
+$ \sum_{n=0}^{\infty} a_{n} x^{n} = \left[  \sum_{n=0}^{\infty} d_{n} x^{n} \right]  \left[  \sum_{n=0}^{\infty} b_{n} x^{n} \right] = \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} d_{k} b_{n - k}\right) x^{n}  $.
+\end{center}
+No caso da divisão, o raio de convergência do série de potências resultante pode ser menor do que r.
+
+\end{prop.}
+
+Temos ainda, que a função $ f $ é continua e possuiu derivadas de $ f', f'', \ldots $, dentro do seu intervalo de convergência, que podem ser calculadas derivando-se a série termo a termo, isto é,
+\begin{center}
+\begin{itemize}
+$  f' = a_{1} + 2a_{2} x + \ldots + na_{n} x^{n - 1} + \ldots = \sum_{n=1}^{\infty} na_{n} x^{n - 1} $,
+\end{itemize}
+\end{center}
+\begin{center}
+\begin{itemize}
+$ f'' =  2a_{2} + 6a_{3} x + \ldots + n(n - 1)a_{n} x^{n - 2} + \ldots = \sum_{n=2}^{\infty} n(n - 1)a_{n} x^{n - 2} $,
+\end{itemize}
+\end{center}
+e assim por diante. Cada uma dessas séries converge absolutamente no intervalo $ |x| < r $.
+
+%==================================================================================
+\subsection{Propriedades das Séries de Potências}
+%==================================================================================
+
+\begin{teo.}
+Toda série de potências $ \sum a_{n} x^{n},$ com raio de convergência $ r > 0 $ ($ r $ podendo ser infinito), converge uniformemente em todo intervalo $ [-c, c], $ onde $ 0 < c < r. $  
+\end{teo.}
+
+\begin{proof}
+Fixado $ c < r $, seja $ x_{0} $ um número compreendido entre $ c $ e $ r $. Como a série converge absolutamente em $ x_{0} $, existe $ S $ tal que $ |a_{n} x_{o}^{n}| $ é limitado por uma constante $ S $; segue que para $ |x| \leq c $,
+\begin{center}
+
+$ |a_{n} x^{n}| = |a_{n} x_{0}^{n}| \left| \frac{x}{x_{0}} \right|^{n} \leq S \left| \frac{c}{x_{0}} \right|^{n} $.
+
+\end{center}
+Isso mostra que a série $ \sum |a_{n} x^{n}| $ é dominada pela série numérica convergente $ \sum S \left| \frac{c}{x_{0}} \right|^{n} $. Portanto, pelo teste da comparação, a série $ \sum |a_{n} x^{n}| $ converge uniformemente em $ |x| \leq c $.    
+\end{proof}
+\begin{obs.} 
+Note que o teorema anterior garante a convergência uniforme em qualquer intervalo $ |x| \leq c $ contido no intervalo $|x| < r $, mas não garante nada em $ |x| < r. $
+\end{obs.}
+
+\begin{teo.}
+Se uma função $ f $ admite representação em série de potências num ponto $ x_{0} $, essa representação é única.
+\end{teo.}
+
+\begin{proof}
+Suponhamos que $ f $ tenha duas representações para todo $ x $ numa vizinhança da origem, $ |x| < r $:
+\begin{center}
+$ f(x) = \sum a_{n} x^{n} = \sum b_{n} x^{n}.$
+\end{center}
+Essas séries podem ser derivadas repetidamente, termo a termo, em seu intervalo aberto. Em particular, em $ x = 0 $, temos $ a_{n} = b_{n} $ para todo $ n \geq 0 $.   
+\end{proof}
+
+\begin{obs.}{\textbf{(Consequência do teorema anterior)}}
+
+Se \begin{center}
+$ \sum_{n=0}^{\infty} a_{n} (x - x_{0})^{n} = 0 ,$
+\end{center}
+para todo $ x $ em algum intervalo aberto centrado em $ x_{0} $, tal que $ |x| < r $. Então, 
+\begin{center}
+$ a_{0} = a_{1} = a_{2} \ldots = a_{n} = \ldots = 0 $. 
+\end{center}
+\end{obs.}
+
+%==================================================================================
+\section{A Idéia do Método das Séries de Potências}
+\label{ometodo}
+%==================================================================================
+
+A idéia do método de séries de potência para resolver EDOs é bem simples. Descreveremos, nesta seção, o procedimento prático, que nos fornece soluções das EDOs na forma dessas séries, em seguida provaremos a existência da solução por séries de potências.
+
+Para uma dada EDO na forma padrão
+\begin{equation}
+y'' + p(x)y' + q(x)y = 0,
+\label{edo}
+\end{equation}
+onde $ p(x) $ e $ q(x) $ são polinômios.
+
+Suponha que existe uma solução na forma de uma série de potências, a qual estabeleceremos no próximo teorema, com coeficientes desconhecidos
+\begin{equation}
+y = \sum_{n=0}^{\infty} a_{n} x ^{n} = a_{0} + a_{1} x + a_{2} x^{2} + a_{3} x^{3} + \ldots
+\label{Seriep}
+\end{equation}
+
+O modo mais prático de determinar os coeficientes $ a_{n} $ é substituindo a solução $ y $ e suas derivadas $ y' $ e $ y'' $ na equação (\ref{edo}), no seu intervalo de convergência, o que resultará em uma fórmula de recorrência, pela qual podemos determinar sucessivamente os coeficientes, até então, desconhecidos. De modo que, as operações envolvidas no procedimento são justificáveis desde que permaneçamos no intervalo de convergência.
+
+Raramente é possível reduzir uma representação fechada para a solução de uma equação, deste modo, não convém aplicar o método de série de potências de imediato, se não temos uma garantia. Prosseguiremos utilizaremos o seguinte conceito.
+
+\begin{def.}\textbf{(Função Analítica Real)}
+Uma função real $ f(x) $ é dita \textbf{analítica no ponto $ x = x_{0}$ }, se ela pode ser representada numa série de Taylor relativa a esse ponto que tenha raio de convergência positivo. 
+\end{def.}
+
+Basta considerarmos a equação diferencial de segunda ordem linear
+
+\begin{equation}
+a_{2}(x) y''+ a_{1}(x) y' + a_{0}(x) y = 0
+\label{eq}
+\end{equation}
+onde $ a_{2} $, $ a_{1} $ e $ a_{0} $ são funções analíticas em $ x = x_{0} $, que pode ser escrita na forma
+\begin{center}
+$  y'' + p(x)y' + q(x)y = 0$,
+\end{center}
+dividindo-se pelo primeiro coeficiente $ a_{2}(x) $. Segue-se, então:
+\begin{center}
+\begin{itemize}
+\item Se $ a_{2} (x_{0}) \neq 0 \Rightarrow p(x)$ e $ q(x) $ são analíticas;
+\end{itemize}
+\end{center}
+\begin{center}
+\begin{itemize} 
+\item Se $ a_{2} (x_{0}) = 0 $ e $ a_{2} $, $ a_{1} $ e $ a_{0} $ são polinômios sem fatores comuns. Então $ p(x)$ e $ q(x) $ não são analíticas.  
+\end{itemize}
+\end{center}
+
+\begin{exe.} 
+Verificaremos se a seguinte equação possui solução
+\begin{center}
+$ x y'' + (\sin x) y' + x^{2} y = 0 $.
+\end{center}
+Temos que,
+\begin{center}
+$ a_{2} = x $, $ a_{1} = \sin x $ e $ a_{0} = x^{2} $
+\end{center}
+são funções analíticas em $ x = 0 $. Reescrevendo a equação dada, obtemos
+\begin{center}
+$ y'' + \frac{\sin x}{x} y'+ \frac{x^{2}}{x} y $,
+\end{center}
+donde só podemos garantir solução por série de potências se $ p(x) $ e $ q(x) $ forem analíticas. Note que $ q(x) = x $ é analítica. Verificaremos agora se $ p(x) $ também é. Segue que
+\begin{center}
+$ p(x) = \frac{\sin x}{x} = \frac{x}{x} - \frac{x^3}{3! x} + \frac{x^5}{5! x} - \ldots = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \ldots = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n + 1)!}  $,
+\end{center}  
+usando o teste da razão na série, temos
+\begin{center}
+$ \lim_{n\rightarrow \infty} \left| \frac{ a_{n + 1} x^{n + 1}}{ a_{n} x^{n}} \right| = \lim_{n\rightarrow \infty} \left| \frac{ x^{2n + 2}}{(2n + 3)!} \frac{(2n + 1)!}{ x^{2n}} \right| = x^{2} \lim_{n\rightarrow \infty} \frac{1}{(2n + 3)(2n + 2)} = 0 < 1  $,
+\end{center}
+logo, pelo critério da razão, a série  $ \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n + 1)!} $ é absolutamente convergente e analítica. Portanto, a equação
+\begin{center}
+$ x y'' + (\sin x) y' + x^{2} y $,
+\end{center}
+possui solução em séries de potências.   
+\end{exe.}
+
+
+%==================================================================================
+\subsubsection*{Funções Harmônicas} 
+%==================================================================================
+\begin{def.}
+Seja $ u $ uma função de duas variáveis $x $ e $y $, definidas em um domínio $ D $. Suponha que $ u $ tenha derivadas de segunda ordem sobre $ D $. A função $ u $ é harmônica se ela satisfaz a equação
+\begin{equation}
+u_{xx} + u_{yy} = 0
+\end{equation}  
+\end{def.}
+\begin{exe.}
+São exemplos de função harmônica as chamadas \textbf{soluções fundamentais} da equação de Laplace $ \Phi : \mathbb{R}^n - \{0\} \rightarrow \mathbb{R}  $. Definida por:
+
+$$ \Phi (x) = \left\{\begin{array}{c}
+\frac{1}{2 \pi} l n |x| \ \ se \ \ n = 2 \\ \\
+\frac{1}{n(2 - n)\alpha(n)}|x|^{2 - n} \ \ se \ \ n \geq 3 \\
+\end{array}
+\right.$$
+\end{exe.}
+
+%==================================================================================
+\subsection{Teorema da Existência de Soluções por Séries de Potências}
+%==================================================================================
+
+\begin{teo.}\textbf{(Existência de Soluções por Séries de Potências)}
+Considere a equação
+\begin{center}
+$ a_{2}(x) y''+ a_{1}(x) y' + a_{0}(x) y = 0 $,
+\end{center}
+em que $ a_{2}(x) $, $ a_{1}(x) $ e $ a_{0}(x) $ são polinômios sem fatores comuns. Se $ a_2(x_{0}) \neq 0 $, a solução geral pode ser escrita como uma série de potências 
+\begin{center}
+$ y(x) = \sum_{n=0}^{\infty} a_{n} x^{n} = a_{0} \left( 1 + \sum_{n=2}^{\infty} b_{n} x^{n} \right) + a_{1} \left( x + \sum_{n=2}^{\infty} c_{n} x^{n} \right) =  a_{0} y_{1}(x) + a_{1} y_{2}(x)  $,
+\end{center} 
+em que $ y_{1}(x) $ e $ y_{2}(x) $ são soluções fundamentais da equação que convergem (pelo menos) para $ |x| < r $, sendo $ r $ o raio do maior círculo no plano complexo com centro na origem tal que $ a_{2}(z) \neq 0 $, para todo $ z \in \mathbb{C}  $ com $ |z| < r $.
+\end{teo.}
+
+\begin{proof}
+Dividindo-se a equação (\ref{eq}) por $ a_{2} $, obtemos uma equação na forma padrão 
+\begin{eqnarray*}
+y'' + p(x)y' + q(x)y = 0.
+\end{eqnarray*} 
+Temos que $ a_2(x_{0}) \neq 0 $, $ p(x) $ e $ q(x) $ são analíticas, logo podem ser representada em série de potências de $ x $,
+\begin{center}
+$ p(x) = \sum_{n=0}^{\infty} p_{n} x^{n} $ e $ q(x) = \sum_{n=0}^{\infty} q_{n} x^{n} $,
+\end{center}   
+que converge para $ |x| < r $, sendo $ r $ o raio do maior círculo no plano complexo com centro na origem tal que $ a_{2}(z) \neq 0 $, para todo $ z \in \mathbb{C}  $ com $ |z| < r $. Suponhamos que exista uma solução
+\begin{center}
+$ y(x) = \sum_{n=0}^{\infty} a_{n} x^{n} $.
+\end{center}   
+Vamos mostrar que os coeficientes satisfazem uma recorrência de tal forma que $ y(x) $ converge para $ |x| < r $. Derivando-se termo a termo da série de $ y(x) $, obtemos
+\begin{center}
+\begin{itemize}
+$  y' = \sum_{n=1}^{\infty} na_{n} x^{n - 1} = \sum_{n=0}^{\infty} (n + 1)a_{n + 1} x^{n} $
+\end{itemize}
+\end{center}
+e
+\begin{center}
+\begin{itemize}
+$ y'' = \sum_{n=2}^{\infty} n(n - 1)a_{n} x^{n - 2} = \sum_{n=0}^{\infty} (n + 1)(n + 2)a_{n + 2} x^{n}$.
+\end{itemize}
+\end{center}
+Em seguida, substituindo-se na equação (\ref{edo}), obtemos
+\begin{center}
+\begin{itemize}
+$ \sum_{n=0}^{\infty} (n + 1)(n + 2)a_{n + 2} x^{n} + \sum_{n=0}^{\infty} p_{n} x^{n} \sum_{k=0}^{\infty} (k + 1)a_{k + 1} x^{k} + \sum_{n=0}^{\infty} q_{n} x^{n} \sum_{k=0}^{\infty} a_{k} x^{k} = 0 $
+\end{itemize}
+\end{center}
+\begin{center}
+\begin{itemize}
+$ \Rightarrow \sum_{n=0}^{\infty} (n + 1)(n + 2)a_{n + 2} x^{n} + \sum_{n,k=0}^{\infty} p_{n}(k + 1)a_{k + 1} x^{n + k} + \sum_{n,k=0}^{\infty} q_{n}a_{k} x^{n + k} = 0 $
+\end{itemize}
+\end{center}
+\begin{center}
+\begin{itemize}
+$ \Rightarrow \sum_{n=0}^{\infty} \left[ (n + 1)(n + 2)a_{n + 2} + \sum_{k=0}^{n} \left[ p_{n - k}(k + 1)a_{k + 1} + q_{n - k}a_{k}\right] \right] x^{n} = 0$.
+\end{itemize}
+\end{center}
+Esta é a série nula, o que implica que todos os coeficientes são igualados a zero, o que garante que podemos obtermos duas soluções. Assim obtemos: 
+\begin{eqnarray}
+(n + 1)(n + 2)a_{n + 2} = - \sum_{k=0}^{n} \left[ p_{n - k}(k + 1)a_{k + 1} + q_{n - k}a_{k}\right]
+\label{1.5}
+\end{eqnarray}
+Essa equação é chamada de \textbf{relação de recorrência}. Por outro lado, da convergência das séries de $ p(x) $ e $ q(x) $, se $ 0 < x < r $, temos que existe $ S > 0 $, tal que
+\begin{center}
+$ |p_{n}| x_{0}^{n} \leq S $  e  $ |q_{n}| x_{0}^{n} \leq S, \ \ \ \ \ \ \  \forall n \geq 0 $.
+\end{center}
+Segue que 
+\begin{center}
+$ |p_{n - k}|  \leq \frac{S}{x_{0}^{n - k}} = \frac{S}{x_{0}^{n}} x_{0}^{k}  $  e  $ |q_{n - k}| \leq \frac{S}{x_{0}^{n - k}} = \frac{S}{x_{0}^{n}} x_{0}^{k}, \ \ \ \ \ \ \  \forall n \geq 0 $.
+\end{center}
+Usando isso, temos da equação(\ref{1.5})
+
+\begin{eqnarray}
+(n + 1)(n + 2)|a_{n + 2}|  &  \leq & \frac{S}{x_{0}^{n}} \sum_{k=0}^{n} \left[ (k + 1)|a_{k + 1}| + |a_{k}| \right] x_{0}^{k} \\ & \leq & \frac{S}{x_{0}^{n}} \sum_{k=0}^{n} \left[ (k + 1)|a_{k + 1}| + |a_{k}| \right] x_{0}^{k}  + S|a_{n + 1}| x_{0}.
+\label{2}
+\end{eqnarray}
+Vamos considerar a série $ \sum_{n=0}^{\infty} A_{n} x^{n} $, com os coeficientes definidos por $ A_0 = |a_0| $,  $ A_1 = |a_1| $. Donde
+
+\begin{eqnarray}
+(n + 1)(n + 2) A_{n + 2} & = & \frac{S}{x_{0}^{n}} \sum_{k=0}^{n} \left[ (k + 1)A_{k + 1} + A_{k} \right] x_{0}^{k}  + S A_{n + 1} x_{0}.
+\label{3} 
+\end{eqnarray}
+Usando (\ref{2}) e (\ref{3}), por indução podemos provar que para $ n \geq 0 $ temos $ a_n \leq A_n $. De fato, para $ n = 0 $, temos
+\begin{eqnarray*}
+2 |a_2| \leq S \left[ |a_1| + |a_0|\right] + S |a_1| x_0, 
+\end{eqnarray*}
+como $ A_0 = |a_0| $ e $ A_1 = |a_1| $, segue que 
+\begin{eqnarray*}
+2 |a_2| \leq S \left[ A_0 + A_1\right] + S A_1 x_0 = 2A_2 
+\end{eqnarray*} 
+\begin{eqnarray*}
+ |a_2| \leq A_2. 
+\end{eqnarray*} 
+Suponha que a desigualdade vale para todo $ n < k $, com $ k \in \mathbb{N} $. assim $ a_{k - 2} \leq |A_{k - 2}| $ e $ a_{k - 1} \leq |A_{k - 1}| $. Mostraremos que vale para $ k $. Portanto, fazendo $ n = k - 2 $, temos 
+\begin{eqnarray}
+(k - 1)k |a_k| \leq \frac{S}{x_{0}^{k - 2}} \sum_{i=0}^{k - 2} \left[ (k + 1)|a_{k + 1}| + |a_{k}| \right] x_{0}^{k}  + S |a_{n - 1}| x_{0}.
+\label{**}
+\end{eqnarray}
+Como no lado direito de (\ref{**}) a soma é até $ k - 2 $, pela hipótese de indução, temos
+\begin{eqnarray*}
+(k - 1)k |a_k|  & \leq &\frac{S}{x_{0}^{k - 2}} \sum_{i=0}^{k - 2} \left[ (k + 1)|A_{k + 1}| + |A_{k}| \right] x_{0}^{k}  + S |A_{k - 1}| x_{0} \\ & = & (k - 1) k A_k.
+\end{eqnarray*}
+Logo $ |a_k| \leq A_k $.
+ 
+Vamos mostrar agora que a série $ \sum_{n=0}^{\infty} A_{n} x^{n} $ é convergente para $ |x| < r $, o que implica que a série de $ y(x) $ também é convergente. Usando a equação (\ref{3}) para $ n - 1 $, temos:
+
+\begin{eqnarray*}
+n(n + 1)A_{n + 1} & = & \frac{S}{x_{0}^{n - 1}} \sum_{k=0}^{n - 1} \left[ (k + 1)A_{k + 1} + A_{k} \right] x_{0}^{k}  + S A_{n} x_{0}
+\end{eqnarray*} 
+e
+\begin{eqnarray*}
+n(n - 1)A_n & = & \frac{S}{x_{0}^{n - 2}} \sum_{k=0}^{n - 2} \left[ (k + 1)A_{k + 1} + A_{k} \right] x_{0}^{k}  + S A_{n - 1} x_{0}.
+\end{eqnarray*}
+Assim,
+\begin{eqnarray*}
+n(n + 1)A_{n + 1} & = & \frac{1}{x_{0}} \left\lbrace \frac{S}{x_{0}^{n - 2}} \left[ \sum_{k=0}^{n - 1} \left[ (k + 1)A_{k + 1} + A_{k} \right] x_{0}^{k} \right] \right\rbrace + S A_{n} x_{0} \\ & = & \frac{1}{x_{0}} \left\lbrace \frac{S}{x_{0}^{n - 2}}  \left[ \sum_{k=0}^{n - 2} \left[ (k + 1)A_{k + 1} + A_{k} \right] x_{0}^{k} + \left( n A_{n} + A_{n - 1} \right)  x_{0}^{n - 1} \right] \right\rbrace  + S A_{n} x_{0} \\ & = & \frac{1}{x_{0}} \left\lbrace \frac{S}{x_{0}^{n - 2}} \left[ \sum_{k=0}^{n - 2} \left[ (k + 1)A_{k + 1} + A_{k} \right] x_{0}^{k} \right] + \frac{S}{x_{0}^{n - 2}} \left( n A_{n} + A_{n - 1} \right)  x_{0}^{n - 1} \right\rbrace  + S A_{n} x_{0} \\ & = & \frac{1}{x_{0}} \left\lbrace \frac{S}{x_{0}^{n - 2}}  \left[ \sum_{k=0}^{n - 2} \left[ (k + 1)A_{k + 1} + A_{k} \right] x_{0}^{k} \right] + S \left( n A_{n} + A_{n - 1} \right) x_{0} \right\rbrace + S A_{n} x_{0} \\ & = & \frac{1}{x_{0}} \left\lbrace \frac{S}{x_{0}^{n - 2}}  \left[ \sum_{k=0}^{n - 2} \left[ (k + 1)A_{k + 1} + A_{k} \right] x_{0}^{k} \right] + S A_{n - 1} x_{0} + S n A_{n} x_0 \right\rbrace + S A_{n} x_{0}  \\ & = & \frac{1}{x_{0}} \left\lbrace n(n - 1)A_n + S n A_{n} x_{0} \right\rbrace + S A_{n} x_{0} \\ & = & \frac{A_{n}}{x_{0}} \left\lbrace n(n - 1) + S n x_{0} + Sx_{0}^{2} \right\rbrace.   
+\end{eqnarray*}   
+Usando o teste da razão, temos
+\begin{eqnarray*}
+ \lim_{n\rightarrow \infty} \left| \frac{ A_{n + 1} x^{n + 1}}{ A_{n} x^{n}} \right| & = & \lim_{n\rightarrow \infty} \left| \frac{ n(n - 1) + S n x_{0} + Sx_{0}^{2}}{x_{0}n(n + 1)} \frac{x^{n + 1}}{ x^{n}} \right| \\ & = & \lim_{n\rightarrow \infty}  \frac{ n(n - 1) + S n x_{0} + Sx_{0}^{2}}{x_{0}n(n + 1)} \left| x \right| \\ & = & \frac{\left| x \right|}{x_{0}}.
+\end{eqnarray*}
+Assim, a série $ \sum_{n=0}^{\infty} A_{n} x^{n} $ converge para $ |x| < x_{0} $, para todo $ x_{0} < r $. Logo, a série $ \sum_{n=0}^{\infty} A_{n} x^{n} $ é convergente para $ |x| < r $. Como para $ n \geq 0 $ temos $ a_n \leq A_n $, então a série $ y(x) = \sum_{n=0}^{\infty} a_{n} x^{n} $ também é convergente para $ |x| < r $.
+
+Agora, fazendo $ n = 0 $ em (\ref{1.5}), obtemos $ a_{2} $ como combinação linear de $ a_{0} $ e $ a_{1} $. Substituindo este resultado em (\ref{1.5}) para $ n = 1 $ obtemos também $ a_{3} $ como combinação linear de $ a_{0} $ e $ a_{1} $. Continuando desta forma obtemos 
+\begin{eqnarray*}
+a_n = b_n a_0 + c_n a_1, para \ n \geq 0.
+\end{eqnarray*} 
+Assim,
+\begin{eqnarray*}
+y(x) = \sum_{n=0}^{\infty} a_{n} x^{n} = a_{0} \left( 1 + \sum_{n=2}^{\infty} b_{n} x^{n} \right) + a_{1} \left( x + \sum_{n=2}^{\infty} c_{n} x^{n} \right).
+\end{eqnarray*}
+Fica como exercício para leitor verificar se $ y_{1}(x) = 1 + \sum_{n=2}^{\infty} b_{n} x^{n} $ e $ y_{2}(x) = x + \sum_{n=2}^{\infty} c_{n} x^{n} $ são solução fundamentais da equação.(veja na referência \cite{eq})
+\end{proof}
+
+%==================================================================================
+\subsection{Classificação dos Pontos do Domínio da EDO}
+\label{secaodominio}
+%==================================================================================
+
+Dizemos que um ponto $ x_0 $ é um \textbf{ponto ordinário} da equação $ a_{2}(x) y''+ a_{1}(x) y' + a_{0}(x) y = 0 $ se tanto $ p(x) $ como $ q(x) $ na forma padrão forem analíticas em $ x_0 $. Dizemos, ainda, que um ponto que não é um ponto ordinário é dito um \textbf{ponto singular} da equação. Definimos da seguinte forma:  
+\begin{def.}
+Um ponto $ x_0 $ é um ponto ordinário da equação  
+\begin{eqnarray*}
+y''(x) + p(x)y'(x) + q(x)y(x) = 0,  
+\end{eqnarray*}
+se $ p(x) $ e $ q(x) $ são \textbf{funções analíticas} em $ x_0 $. Caso contrário, dizemos que $ x_0 $ é um \textbf{ponto singular}.
+Além disso, $ x_0 $ é chamado de ponto singular regular se $ x_0 $ não é um ponto ordinário e as funções dadas por $ (x - x_0)p(x) $  e $ (x - x_0)^{2}q(x) $ são analíticas em $ x_0 $. Se $ x_0 $  não é um ponto ordinário e pelo menos uma desta funções não for analítica em $ x_0 $, diremos que ele é um ponto singular irregular.
+\label{2.2}
+\end{def.}
+No caso da equação com coeficientes polinomiais, esta definição (\ref{2.2}) pode ser reformulada de maneira mais específica, deste modo:
+
+\begin{def.}
+Considere 
+\begin{center}
+$ a_{2} y''+ a_{1} y' + a_{0} y = 0 $,
+\end{center}
+onde $ a_{2}, a_{1} $ e $ a_{0} $ são polinômios.
+\begin{description}
+\item i) $ x_{0} $ é um ponto singular da equação acima se $ a_{2}(x_0) = 0 $; 
+\item ii) Um ponto singular $ x_0 $ é dito regular se os limites forem finito.
+\begin{eqnarray*}
+\lim_{x\rightarrow x_0} (x - x_0) \frac{a_{1}(x)}{a_{2}(x)} \ \ \ e \ \ \  \lim_{x\rightarrow x_0} (x - x_0)^{2} \frac{a_{0}(x)}{a_{2}(x)};
+\end{eqnarray*}
+\item iii) Se um ponto singular não é regular, dizemos que ele é um ponto singular irregular.
+\end{description}
+\end{def.}
+ 
+
+\begin{obs.}
+ Se $ x = x_{0} $ for um ponto ordinário da equação (\ref{eq}), podemos sempre encontrar duas soluções linearmente independentes na forma de série de potências, convergindo cada série, pelo menos, no intervalo ($ x_{0} - r $, $ x_{0} + r $),em que r é a distância a partir do centro $ x_0 $ até o ponto singular (real ou não) mais próximo.
+\end{obs.}
+
+\begin{exe.}
+A solução da EDO 
+\begin{center}
+$ (x - 1)y'' + x y' + y = 0 $,
+\end{center}
+é da forma $ \sum_{n=0}^{\infty} a_{n} (x - 4)^{n} $, isto é, na forma de uma série de potências em torno do ponto ordinário $ x = 4 $, é convergente no intervalo $(4 - 3, 4 + 3)=(1,7)$. De fato, neste caso o ponto singular mais próximo, é o ponto $ x = 1 $, e o raio $ r = |4 - 1| = 3$.
+\end{exe.}
+
+\begin{exe.}
+A solução da EDO 
+\begin{center}
+$ (x^{2} - 9)y'' + x y' + y = 0 $,
+\end{center}
+é da forma $ \sum_{n=0}^{\infty} a_{n} (x - 4)^{n} $, isto é, na forma de uma série de potências em torno do ponto ordinário $ z_{1} = 4 $, é convergente no intervalo $(4 - 5, 4 + 5)=(-1,9)$. De fato, neste caso o ponto singular mais próximo, são os ponto $ z_{2} = \pm 3i $ do plano complexo, e raio $ r = |z_{1} - z_{2}| = |4 - 3i| = |4 + 3i| = \sqrt{4^{2} + 3^{2}} = 5$.
+\end{exe.}
+
+%==================================================================================
+\subsection{Resolução na Vizinhança de um Ponto Ordinário}
+%==================================================================================
+
+Dados os coeficientes analíticos, podemos procurar solução analítica em torno de um ponto ordinário $ x_0 $, ou seja, podemos supor solução formalmente representada por uma série de potências e tentar identificar os coeficientes $ a_{n}$'s e validar o resultado.
+
+\begin{exe.}
+Todo valor finito de $ x $ é um ponto ordinário da equação diferencial $ y'' + (e^{x}) y' + (\sin x) y = 0 $. Em particular, $ x_0 $ é um ponto ordinário. De fato, pois, tanto $ e^{x} $ como $ \sin x $ são analíticas. 
+\end{exe.}
+
+%==================================================================================
+\subsection{Resolução na Vizinhança de um Ponto Singular Regular}
+\label{RVPR}
+%==================================================================================
+
+Uma equação diferencial relativamente simples que tem um ponto singular regular é a \textbf{equação de Euler-Cauchy}. A resolução da equação de Euler-Cauchy pode ser resumida da seguinte maneira:
+
+Dada a equação de Euler-Cauchy
+
+\begin{eqnarray}
+x^{2} y'' + \alpha x y' + \beta  y = 0,
+\label{24}
+\end{eqnarray} 
+em qualquer intervalo que não contenha a origem, procuramos solução do tipo potência $ y = x^{s} $, para $ s $ conveniente, ou seja, as soluções são determinada pelas raízes $ s_{1} $ e $ s_{2} $. Temos ainda que $ \alpha $ e $ \beta $ são constantes reais. O que faz sentido, pois:
+
+\begin{eqnarray*}
+y' = s x^{s - 1} \Rightarrow x y' = s x^{s};
+\end{eqnarray*}
+
+\begin{eqnarray*}
+y'' = s(s - 1) x^{s - 2} \Rightarrow x^{2} y'' = s(s - 1) x^{s}.
+\end{eqnarray*}
+Substituindo na equação (\ref{24}) $ y $ e suas derivadas $ y' $ e $ y'' $. Obtemos:
+
+\begin{eqnarray*}
+x^{2} y'' + \alpha x y' + \beta y = s(s - 1) x^{s} + \alpha s x^{s} + \beta x^{s} = 0
+\end{eqnarray*}
+\begin{eqnarray*} 
+\Leftrightarrow [s(s - 1) + \alpha s + \beta] x^{s} = 0
+\end{eqnarray*}
+\begin{eqnarray*}
+\Leftrightarrow s(s - 1) + \alpha s + \beta = 0
+\end{eqnarray*} 
+\begin{eqnarray}
+\Leftrightarrow s^{2} + (\alpha - 1) s + \beta = 0.
+\label{eq.i} 
+\end{eqnarray}   
+
+Essa equação quadrática é chamada de \textbf{Equação característica} ou \textbf{Equação indicial} associada à equação de Euler-Cauchy, a qual, estudaremos mais a adiante. Da equação característica, podemos obter o solução geral da EDO, determinando as raízes $ s_{1} $ e $ s_{2} $ da equação.
+
+%===============================================================================
+\subsubsection{Soluções da Equação Indicial}
+%==================================================================================
+
+\begin{itemize}
+\item Se as raízes são reais e distintas, então a solução geral é dada por
+\begin{eqnarray*}
+y = c_{1} |x|^{s_{1}} +  c_{2} |x|^{s_{2}}
+\end{eqnarray*}
+\item Se as raízes são reais iguais, então
+\begin{eqnarray*}
+y = (c_{1} + c_{2} ln |x|)|x|^{s_{1}}
+\end{eqnarray*}
+\item Se as raízes são complexas, $s_{1}, s_{2} = \lambda \pm i\mu $, então  
+\begin{eqnarray*}
+y = |x|^{\lambda} \left[ c_1 \cos ( \mu ln |x|) + c_2 \sin ( \mu ln |x|)\right].
+\end{eqnarray*}
+\end{itemize}
+
+Generalizando este procedimento, temos que supor que $ x_{0} $ é um ponto de singularidade regular da equação $ a_{2}(x) y''+ a_{1}(x) y' + a_{0}(x) y = 0 $, que também pode ser escrita em sua forma padrão 
+
+\begin{eqnarray*}
+y''(x) + p(x)y'(x) + q(x)y(x) = 0,
+\label{padrao}  
+\end{eqnarray*}
+fazendo
+\begin{eqnarray*}
+ p(x) = \frac{a_1(x)}{a_2(x)}   
+\end{eqnarray*}
+e
+\begin{eqnarray*}
+q(x) = \frac{a_0(x)}{a_2(x)}.  
+\end{eqnarray*}
+
+Como $ x_{0} $ é um ponto de singularidade regular da equação, temos por definição, que pelo menos uma das funções $ p(x) $ e/ou $ q(x) $ não é analítica em $ x_{0} $ e as funções dadas por
+\begin{eqnarray*}
+(x - x_0) p(x) = (x - x_0) \frac{a_1(x)}{a_2(x)}
+\end{eqnarray*} 
+e
+\begin{eqnarray*}
+(x - x_0)^2 q(x) = (x - x_0)^2 \frac{a_0(x)}{a_2(x)}
+\end{eqnarray*}
+são analíticas em $ x_{0} $. Sem perda de generalidade, vamos supor que $ x_{0} = 0 $. Logo poderemos representá-las por suas séries de Taylor:
+\begin{eqnarray}
+x p(x) = \sum_{n=0}^{\infty} p_{n} x^{n} = p_{0} + p_{1} x + p_{2} x^{2} + p_{3} x^{3} + \ldots
+\label{xp}
+\end{eqnarray}
+e
+\begin{eqnarray}
+x^2 q(x) = \sum_{n=0}^{\infty} q_{n} x^{n} = q_{0} + q_{1} x + q_{2} x^{2} + q_{3} x^{3} + \ldots
+\label{xq}
+\end{eqnarray}
+Note que se multiplicarmos a equação (\ref{edo}), por $ x^2 $,
+\begin{eqnarray}
+x^2 y'' + x (x p(x)) y' + x^2 q(x)y = 0
+\label{eqfrob}
+\end{eqnarray}
+que, no caso particular de $ p_0, \ q_0 \neq 0 $ e $ p_n =  q_n = 0$ $\left(  \forall n \geq 1 \right)  $, recai na equação de Cauchy-Euler
+\begin{eqnarray*}
+x^2 y'' + x p_0 y' + x^2 q_0y = 0.
+\end{eqnarray*} 
+
+\begin{exe.}
+$ x_0 = 0 $ é um ponto singular para a equação de Cauchy-Euler
+\begin{equation*}
+x^2 y'' + axy' + by = 0.
+\end{equation*}
+De fato, dividindo por $ x^2 $, obteremos $ p(x) = \frac{a}{x}$ e $q(x) = \frac{b}{x^2} $. Logo, as singularidades destas funções podem ser removidas por multiplicação:
+\begin{center}
+ $ x p(x) = a$ e $x^2 q(x) = b $
+\end{center}
+\end{exe.}
+
+\begin{obs.}
+Da equação de Cauchy-Euler, podemos afirmar que existe solução da forma $ y = x^s $, onde $ s $ não é necessariamente é um inteiro. Portanto no caso de ponto singular regular, não vamos poder procurar solução na forma de uma série de potências, assim, vamos ter que procurar a solução numa forma que contenha como caso particular as funções $ y = x^s $. 
+\end{obs.} 
+    
+Na próximo capítulo, estudaremos o método chamado \textbf{Método de Frobenius}, que fornece a base das soluções em série da EDO linear (\ref{eqfrob}) em torno de um ponto singular regular. Deste modo, uma das duas soluções terá sempre a forma 
+\begin{eqnarray*}
+y(x) = x^s \sum_{n=0}^{\infty} a_{n} (x - x_0)^{n}  \ \ \ \ \ \ (a_{0} \neq 0),
+\end{eqnarray*}
+onde $ s $ é a raiz da equação (\ref{eq.i}). A outra solução terá uma forma indicada pela equação indicial. Apresentaremos agora dois exemplos, dois fatos que motivam esse método:
+
+\begin{exe.}
+ $ y_{1} = x^{2} $ e $ y_{2} = x^{2} ln x $ são soluções de $ x^2 y'' - 3 x y' + 4y = 0 \ \ \ \forall x \in \left( 0, \infty \right) $. Esta EDO tem um ponto singular em $ x = 0 $, em torno do qual, se queremos uma série de potências como solução, só obteríamos $ y_{1} = x^{2} $, pois o fator $ ln x $ na solução $ y_{2} $ não tem representação em série de Taylor em torno de $ x = 0 $.   
+\end{exe.} 
+
+\begin{exe.}
+A equação de Bessel (que discutiremos no próxima capítulo)
+\begin{eqnarray}
+y'' + \frac{1}{x} y' + \left(\frac{x^{2} - v^{2}}{x^{2}}\right) y = 0  
+\end{eqnarray}
+onde v é um parâmetro e $ a_{1}(x) = 1 $ e $ a_{0}(x) = x^{2} - v^{2} $ analíticas em $ x = 0 $, não pode ser tratada de modo geral pelo método de série de potências.
+\label{bb}  
+\end{exe.}
+
+%==================================================================================

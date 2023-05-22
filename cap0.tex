@@ -1,0 +1,445 @@
+
+
+\chapter{Pré-Requisito}
+
+Neste capítulo definimos os conceitos de sequência e série numéricas, apresentaremos também alguns testes de convergência e divergência, para poder prosseguir em nosso estudos sobre série de Potências.  
+%==================================================================================
+\section{Sequência Numéricas}
+\label{secaoprimeira}
+%==================================================================================
+ 
+
+Nesta seção, todos os conceito e resultados importantes mencionados que referenciar a limites, será introduzidos por meio de sequências numérica. 
+
+ 
+\begin{def.}
+{\bf (Sequência Numérica)}
+Uma sequência numérica é uma função $f:\mathbb{N} \longrightarrow \mathbb{R}$, definida no conjunto $\mathbb{N} = \{1,2,3,4,5,6,7,8, \ldots \}$ dos números naturais e tomando valores no conjunto $ \mathbb{R}$ dos números reais. O valor $f(n)$ será representado por $ a_n $, para todo $n \in \mathbb{N}$, e chamado o termo geral (quando possui uma lei de formação) ou n-ésimo termo. Denotamos uma sequência escrevendo todos os seus termos $(a_1,a_2,a_3, ...)$ ou por $(a_n)_{n \in \mathbb{N}}$ ou simplesmente por $(a_n)$.
+\end{def.}
+
+\begin{exe.} São exemplos de sequências numéricas:
+\begin{enumerate}
+\item $(n)_{n \in \mathbb{N}} = (1,2,3,4,5,6,7,8, \ldots )$
+\item $\left(\frac{1}{10^{n}}\right)_{n \in \mathbb{N}} = \left( \frac{1}{10}, \frac{1}{10^{2}}, \frac{1}{10^{3}}, \frac{1}{10^{4}}, \ldots \right) $
+%\item $[(-1)^{n}}_{n \in \mathbb{N}} = ( -1,1,-1,1,-1,1,-1,+-, \ldots )$
+\end{enumerate}
+\end{exe.}
+
+\subsection{Conceito de Limite de Sequências}
+
+Dizemos que uma sequência $ (a_n) $ é convergente se, a medida que o índice $ n $ cresce, o elemento $ a_n $ vai tender para um certo número $ L $, chamado o \textit{limite} da sequência.
+
+
+\begin{def.}
+Uma sequência $ (a_n) $ converge para o número $ L $, ou tem limite $ L $ se, dado qualquer número $\varepsilon > 0$, existe $N \in \mathbb{N}$ tal que 
+$ n > N $ implica $ |a_{n} - L|<\varepsilon $.
+\label{LS}
+\end{def.} 
+
+\subsubsection{Noção de Vizinhança}
+
+Seja $ L \in \mathbb{N}$ e $ \varepsilon > 0$, chama-se \textbf{vizinhança} $ \varepsilon$ de $ L $, e denota-se por $ V_{\varepsilon} (L)$ ao conjunto
+\begin{center}
+$ V_{\varepsilon} (L) = \{ x \in \mathbb{R}; |x - L| < \varepsilon \} = (L - \varepsilon, \ L + \varepsilon )$.
+\end{center}
+
+%figura
+\begin{obs.}
+Note que $ n $, a partir de um certo índice $ n_0 = N + 1 $, sempre vai estar dentro da vizinhança $ \varepsilon $.
+\end{obs.}
+
+\begin{exe.} Vamos provar, segundo a definição anterior, que a sequência \begin{center}
+$ (a_{n}) = \frac{n - 1}{n} $
+\end{center} converge para o número $ 1 $.
+
+De fato, dado qualquer $ \varepsilon > 0$, tome, $ N > \frac{1}{\varepsilon} $. Assim, se $ n > N $, temos 
+
+
+\begin{center}
+$ \left| \frac{n - 1}{n} - 1 \right| = \left| \frac{ - 1}{n} \right| = \frac{1}{n} < \frac{ 1}{N} < \varepsilon. $
+  
+\end{center}
+
+\end{exe.}
+
+\begin{teo.}
+Se $ \lim a_n = L $ e $ \lim a_n = L_1 $ , então $ L = L_1 $.
+\end{teo.}
+
+\begin{proof}
+( Ref. \cite{Reais}) 
+\end{proof}
+
+\begin{teo.}
+Toda sequência convergente é limitada. 
+\end{teo.}
+
+\begin{proof}
+Seja $ (a_n) $ uma sequência convergente com limite $ L $. Assim pela definição (\ref{LS}), fazendo $\varepsilon = 1$, existe um índice $N $ a partir do qual se tem $|a_{n} - L|< 1 $. Usando a desigualdade triangular podemos assegurar que:
+\begin{eqnarray*}
+ |a_n| = |a_n - L + L| \leq |a_n - L| + |L| < 1 + |L| , \forall \ n > N.
+\end{eqnarray*}
+Os únicos termos da sequência que, possivelmente, não atendem à condição anterior são: $ a_1,a_2,a_3,\ldots , a_{N - 1}$. Considerando o número real $ K $ como o maior entre os números $ 1 + |L|, |a_{1}|, |a_{2}|,|a_{3}|, \ldots,|a_{N - 1}| $. Então, $| a_{n}| \leq K $ para todo $ n $, o que prova que a sequência é limitada. 
+\end{proof}
+
+\begin{obs.}
+Nem toda sequência limitada é convergente.
+\end{obs.}
+
+\begin{exe.}
+Considere a sequência \begin{center}
+$  \left(-1 \right)^{n} \left(2 + \frac{1}{n} \right) $.
+\end{center} Note que, para $ n $ suficientemente grande, a sequência tende a $2 $ ou $ - 2$. Mas uma sequência só pode convergir para um único valor. Logo a sequência dada é limitada sem ser convergente. 
+
+\end{exe.}
+
+\begin{obs.}
+Dizemos que uma sequência que não converge é divergente. Neste caso, dado $K > 0  $ existe $ N $ tal que $a_{n} \geq K $  para todo $ n \geq N $.
+Deste modo não importa o $ K $, teremos sempre um termo da sequência maior do que $ K $.
+\end{obs.}
+
+%==================================================================================
+\subsection{Operação com Limites}
+
+Mediante o conceito de limite e a definição $ 1.2 $, podemos estabelecer o teorema a seguir.
+
+\begin{teo.}
+Sejam $a_{n}$ e $ b_{n}$ duas sequências convergentes, com limites $ a $ e $ b $, respectivamente. Então, $(a_{n} + b_{n}) $, $(a_{n}b_{n})$ e $ (k a_{n}) $, onde $ k $ é uma constante qualquer, são sequências convergentes. Além disso,
+\begin{description}
+\item a) $\lim (a_{n} + b_{n}) = \lim a_{n} + \lim b_{n} = a + b $;
+\item b) $\lim (k a_{n}) = k (\lim a_{n}) = ak$;
+\item c) $ \lim (a_{n}b_{n}) = (\lim a_{n})  (\lim b_{n}) = ab $
+\item d) Se, além das hipóteses acima, $ b \neq 0 $, então $\lim \left( a_{n}/b_{n}\right) = a/b $. 
+\end{description}
+\end{teo.}
+
+\subsection{Sequências Monótonas}
+Uma classe importante de sequências limitadas são as chamadas sequências monótonas. 
+\begin{def.}
+Diz-se que uma sequência $ a_{n} $ é crescente se
+\begin{center}
+$ a_1 < a_2 < a_3 < ... < a_n < ... $;
+\end{center}
+e decrescente se
+\begin{center}
+$ a_1 > a_2 > a_3 > ... > a_n > ... $;
+\end{center}
+Diz-se que uma sequência $ a_{n} $ é não-decrescente se
+\begin{center}
+$ a_1 \leq a_2 \leq a_3 \leq ... \leq a_n \leq ... $;
+\end{center}
+e não-crescente se 
+\begin{center}
+$ a_1 \geq a_2 \geq a_3 \geq ... \geq a_n \geq ... $.
+\end{center}
+Diz-se que uma sequência é monótona se ela satisfaz qualquer uma dessas condições.
+\end{def.}
+
+\begin{teo.}
+Toda sequência monótona e limitada é convergente.
+\end{teo.}
+\begin{proof}
+Seja $ (a_{n}) $ uma sequência não-decrescente e limitada. Então, o conjunto dos termos da sequência $ (a_{n}) $ possui um supremo\begin{center}
+$  K = sup_{n} \{ a_{n} \}$.
+\end{center} Vamos provar que esse número K é o limite de $ a_{n} $. De fato, dado $ \varepsilon > 0, $ existe $ N \in \mathbb{N}$ tal que \begin{center}
+$  K - \varepsilon < a_{N} $.
+\end{center} Seja $ n > N$. Como $ (a_{n}) $ é uma sequência não-decrescente, temos,
+\begin{center}
+$ K - \varepsilon < a_{N} \leq a_{n} \leq K < K + \varepsilon  $.
+\end{center} 
+\begin{center}
+$ \lim a_{n}  = K. $
+\end{center}
+No caso de $ (a_{n}) $ ser não-crescente é análogo.
+ 
+\end{proof}
+
+O teorema anterior nos permite saber se uma dada sequência monótona é convergente, sem conhecer seu limite. O teorema seguinte é um critério de convergência que pode ser aplicado em qualquer sequência.
+
+\begin{teo.}{\bf (Critério de convergência de Cauchy)}
+Uma condição necessária e suficiente para que uma sequência numérica $ (a_{n}) $ seja convergente é que, dado $ \varepsilon > 0 $ exista $N \in \mathbb{N}$ tal que, para todo inteiro positivo p.
+\begin{center}
+$ n > N \Rightarrow |a_{n} - a_{n + p}| < \varepsilon $.
+\end{center}
+\end{teo.} 
+
+\begin{proof}
+(Referência \cite{elongrosso})
+\end{proof}
+
+\begin{obs.}
+Uma sequência é de Cauchy quando seus termos ficam arbitrariamente próximos uns dos outros a partir de um determinado índice.
+\end{obs.}
+
+%==================================================================================
+\section{Séries Numéricas}
+\label{secaosegunda}
+%==================================================================================
+
+Uma série é uma soma $ s= a_1+a_2+a_3+ ...+a_n+ ... $ infinita de termos, onde $ s=\lim (a_1+a_2+a_3+ ...+a_n) $ pode existir ou não. Segue que quando o limite existe a série converge, caso contrario, dizemos que a série diverge. As demonstrações de alguns teoremas, apresentados nesta seção, fogem de nossos objetivos por isso serão ocultadas.
+
+\begin{def.}
+{\bf (Série Numérica)}
+Uma série numérica é a soma de todos os termos de uma sequência, ou seja, dada uma sequência $(a_n)= (a_1, a_2, a_3, \ldots )$ temos que uma série numérica é o somatório $\sum_{n=1}^{\infty} a_n = a_1 + a_2 + a_3 + \ldots$.
+\end{def.}
+
+\begin{exe.}
+São séries numéricas: $ \ \ \ \sum_{n=1}^{\infty}n \ , \ \ \ \sum_{n=1}^{\infty}\left(\frac{1}{10^{n}}\right) \ \ $ e $ \ \ \ \ \sum_{n=1}^{\infty} (-1)^n$.
+\end{exe.}
+
+\subsection{Somas Parciais}
+Para determinar se uma série numérica $\sum_{n=1}^{\infty}a_n = a_1+a_2+a_3+ ...$ tem uma soma ou não, usamos
+somas parciais:
+\begin{eqnarray*}
+s_1 & = & a_1 \\
+s_2 & = & a_1 + a_2 \\
+s_3 & = & a_1 + a_2 + a_3
+\end{eqnarray*}
+e, em geral,
+
+\begin{eqnarray*}
+s_n = \sum_{i=1}^{n}a_i 
+\end{eqnarray*}
+ 
+\begin{obs.}
+As somas parciais formam uma nova sequência $ (s_n) $, que pode
+ou não ter um limite. Assim, se
+
+\begin{eqnarray*}
+\lim_{n\rightarrow \infty} s_n = S 
+\end{eqnarray*}
+existir, então o chamamos de soma da série infinita, isto é,
+\begin{eqnarray*}
+\sum_{n=1}^{\infty} a_n = S.
+\end{eqnarray*}
+\end{obs.}
+%\begin{def.}
+%Dizemos que uma série numérica $\sum_{n=1}^{\infty}a_n = a_1+a_2+a_3+ ...$ converge se a sequência das somas parciais $S_n = \sum_{j=1}^n a_n = a_1+a_2+a_3+ ...+a_n$ converge, ou seja, se $\lim_{n\rightarrow \infty} s_n = S$, onde $S \in \mathbb{R}$.
+%\end{def.}
+\begin{exe.} Considere $ (s_n) $ a sequência de somas parciais da série \begin{center}
+$\sum_{n=1}^{\infty} \frac{1}{10^{n}} $.
+\end{center}
+Assim 
+\begin{center}
+$ s_n = \frac{1}{10} + \frac{1}{10^{2}} + \frac{1}{10^{3}} + \frac{1}{10^{4}} + \ldots  + \frac{1}{10^{n}}$. Daí
+\end{center}
+
+\begin{center}
+$\frac{1}{10} s_n =  \frac{1}{10^{2}} + \frac{1}{10^{3}} + \frac{1}{10^{4}} + \ldots  + \frac{1}{10^{n}} + \frac{1}{10^{n + 1}}$.
+\end{center}
+Note que
+\begin{center}
+$ s_n - \frac{1}{10} s_n =  \frac{1}{10} - \frac{1}{10^{n + 1}}$
+\end{center}
+
+\begin{center}
+$\frac{9}{10} s_n =  \frac{1}{10} - \frac{1}{10^{n + 1}}$
+
+\end{center}
+
+\begin{center}
+$ s_n = \frac{10}{9} \left( \frac{1}{10} - \frac{1}{10^{n + 1}} \right)$.
+\end{center}
+Portanto,
+
+\begin{center}
+$ \lim_{n \rightarrow \infty} s_n = \lim_{n \rightarrow \infty} \left( \frac{1}{9} - \frac{1}{9.10^{n}} \right) = \frac{1}{9}$.
+\end{center}
+Logo,
+
+\begin{center}
+$\sum_{n=1}^{\infty} \frac{1}{10^{n}} = \frac{1}{9}$.
+\end{center} 
+\end{exe.}
+
+\begin{teo.}
+Se uma série converge, seu termo geral tende a $ 0 $.
+\label{teo15}
+\end{teo.}
+
+\begin{proof}
+Seja $\sum_{n=1}^{\infty} a_{n}$ uma série numérica e $ s_{n}$ sua sequência de soma parciais, tal que $ \lim_{n\rightarrow \infty} s_{n} = S $.
+ Temos que
+ 
+\begin{center}
+$ s_n = a_1 + a_2 + a_3 + ... + a_n $
+\end{center}  e
+\begin{center}
+$ s_{n - 1} = a_1 + a_2 + a_3 + ... +a_{ n - 1} $.
+\end{center}
+Segue que,
+\begin{center}
+$\lim_{n\rightarrow \infty} s_n = S$ e $\lim_{n\rightarrow \infty} s_{n - 1} = S$.
+\end{center}
+Logo, 
+
+\begin{center}
+$\lim_{n\rightarrow \infty} a_n = \lim_{n\rightarrow \infty} \left(s_n - s_{n-1} \right) = S - S = 0, $
+\end{center} como queríamos demonstra.
+
+\end{proof}
+
+\begin{exe.} (\textbf{Série Geométrica})
+Seja $\sum_{n=1}^{\infty} x^{n}$ uma série numérica, $ x \neq 1 $, e $ s_{n}$ sua sequência de soma parciais. Assim
+\begin{center}
+$ s_{n} = x + x^{2} + x^{3}+ \ldots +  x^{n}$
+\end{center} e
+\begin{center}
+$ x s_{n} =  x^{2} + x^{3} + \ldots +  x^{n + 1}.$
+\end{center} Temos que
+
+\begin{center}
+$ s_{n} - x s_{n} = x -  x^{n + 1} \Rightarrow s_{n} = \frac{ x - x^{n + 1}}{1 - x}$.
+\end{center}
+
+Agora podemos calcular
+\begin{eqnarray*}
+\lim_{n\rightarrow \infty} s_n = \lim_{n\rightarrow \infty} \frac{ x - x^{n + 1}}{1 - x} = 
+ \displaystyle \left\{{ \frac{ x }{1 - x}   \ \ \ \   |x| < 1 \atop - \infty   \ \ \ \    |x| > 1} 
+\right.
+\end{eqnarray*}
+De fato, supondo $ |x|<1 $, temos que $ x^{n} $ tende a zero, de forma que essa expressão converge para  $ \frac{x}{1 - x} $, que é o limite de $ s_{n} $. Note que no caso em que $ |x| \geq 1 $ a série diverge, pois seu termo geral não tende a zero.
+\end{exe.}
+
+O teorema \ref{teo15} nos dá uma condição necessária para que uma série convirja, mas não suficiente.
+
+\begin{exe.} \textbf{(Série Harmônica)}
+Chama-se séria harmônica à série 
+\begin{eqnarray*}
+\sum_{n=1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \ldots.
+\end{eqnarray*}
+Note que o termo geral desta série tende a zero, mais \textit{Nicole Oresme}, matemático do século XIV, provou que ela diverge.
+
+\end{exe.}
+
+\begin{obs.}
+A série harmônica está compreendida entre as séries divergentes $ \sum \frac{1}{x^{n}} $ com $ x \leq 1 $ e as séries convergentes $ \sum \frac{1}{x^{n}} $ com $ x > 1. $
+\end{obs.}
+
+\subsection{Testes de Convergência}
+
+Dada uma série, para que possamos saber se ela converge ou diverge temos vários testes que podemos aplicar, dos quais veremos alguns que serão necessários ao nosso estudo de séries de Potências. As demonstrações destes testes serão ocultadas neste trabalho, mas poderão ser encontradas em \cite{elonfino}.
+
+\subsubsection*{Teste do Termo Geral}
+
+\begin{teo.} \textbf{(Teste do Termo Geral)} 
+Se $\lim_{n\rightarrow \infty} a_n \neq 0$, então a série $\sum a_{n}$ diverge.
+\end{teo.}
+
+\begin{exe.}
+Dada a série $\sum_{n=1}^{\infty} \frac{n}{n + 1}. $ Temos que 
+
+\begin{center}
+$\lim_{n\rightarrow \infty} \frac{n}{n + 1} = \lim_{n\rightarrow \infty} \frac{1}{ 1 + \frac{1}{n}} = 1 \neq 0. $
+\end{center}
+Portanto, pelo teste do termo geral a série diverge.
+\end{exe.} 
+
+\subsubsection*{Teste de Comparação}
+
+\begin{teo.} \textbf{(Teste de Comparação)}
+Sejam $\sum a_{n}$ e $\sum b_{n}$ duas série de termos não negativos, a primeira dominada pela segunda, isto é , $a_{n} \leq b_{n}$ para todo $ n $. Nessas condições podemos afirmar.
+\begin{description}
+\item a) $\sum b_{n}$ converge $\Rightarrow \sum a_{n}$ converge e $\sum a_{n} \leq \sum b_{n}$;
+\item b) $\sum a_{n}$ diverge $\Rightarrow \sum b_{n}$ diverge.
+
+\end{description}
+
+\end{teo.} 
+
+\begin{exe.}
+Dada a série
+\begin{center}
+ $\sum \frac{\sqrt{n} - 1}{n^{2} + 1}.$
+\end{center} 
+Temos que
+\begin{center}
+$  0 \leq \frac{\sqrt{n} - 1}{n^{2} + 1} \leq \frac{\sqrt{n}}{n^{2}} = \frac{1}{n^{\frac{3}{2}}},$
+\end{center}
+mas como
+\begin{center}
+$  \sum \frac{1}{n^{\frac{3}{2}}}$
+\end{center} 
+é uma p-série e converge, pois $ p = \frac{3}{2} > 1. $
+Logo, pelo teste de comparação, a série\begin{center}
+ $\sum \frac{\sqrt{n} - 1}{n^{2} + 1}$,
+\end{center} converge.
+
+\end{exe.}
+
+\subsubsection*{Teste da Razão}
+
+\begin{teo.} \textbf{(Teste da Razão)}
+Seja $\sum a_{n}$ uma série de termos positivos tal que exista o limite $ L $ do quociente $ \frac{a_{n + 1}}{a_{n}}. $ Então, a série converge se $ L < 1 $ e diverge se $ L > 1, $ sendo inconcluso o caso em que $ L = 1. $ 
+\end{teo.}
+
+\begin{obs.}
+O teste da razão ou teste D`alembert é uma importante consequência do teste de comparação.
+\end{obs.}
+
+\begin{cor.}
+A série de termos positivos $\sum a_{n}$ é convergente se a partir de um certo índice vale sempre $ \frac{a_{n + 1}}{a_{n}} \leq c < 1;$ e divergente se a partir de um certo índice vale sempre $\frac{a_{n + 1}}{a_{n}} \geq 1.$
+\end{cor.}
+
+\begin{exe.}
+Dada a série $ \sum \frac{n!}{n^{n}} $. Verificaremos se converge ou não, usando o teste da razão.
+Segue que,
+\begin{center}
+$\frac{a_{n + 1}}{a_{n}} = \frac{(n + 1)!}{(n + 1)^{n + 1}} . \frac{n^{n}}{n!} = \frac{n^{n}}{(n + 1)^{n}} = \frac{1}{(1 + \frac{1}{n})^{n}} \rightarrow \frac{1}{e} < 1.$
+\end{center}
+Logo pelo teste da razão a série converge.
+\end{exe.}
+
+\subsection{Convergência Absoluta e Condicional}
+
+Dizemos que uma série $\sum a_{n}$ converge \textbf{absolutamente}, ou é \textbf{absolutamente convergente}, se a série $\sum |a_{n}|$ é convergente. Se $\sum |a_{n}|$ diverge e a série $\sum a_{n}$ converge, dizemos que a série $\sum a_{n}$ é \textbf{condicionalmente convergente}.
+
+\begin{teo.}
+Toda série absolutamente convergente é convergente.
+\end{teo.}
+
+\begin{proof}
+Sejam as séries $\sum a_{n}$ e $\sum |a_{n}|$. Suponha que $\sum |a_{n}|$ converge. Considere $ p_{n} $ a soma dos termos $ a_{r} \geq 0 $ e $ q_{n} $ a soma dos valores absolutos dos termos $ a_{r} < 0 $, onde $ r \leq n $. Se $ T_{n} $ e $ S_{n} $ são  as somas parciais de $\sum |a_{n}|$ e $\sum a_{n}$, respectivamente. Temos
+\begin{center}
+$ T_{n} = |a_{1}| + |a_{2}| + |a_{3}| + \ldots  + |a_{n}| = p_{n} + q_{n}  $
+\end{center} e
+\begin{center}
+$ S_{n} = p_{n} - q_{n}  $,
+\end{center} 
+ As sequências $ (T_{n}) $, $ (p_{n}) $ e $ (q_{n}) $ são não decrescentes, a primeira das quais, por hipótese, é convergente. Seja $ T $ seu limite. Temos que $ p_{n} \leq T_{n} \leq T $ e $ q_{n} \leq T_{n} \leq T $, donde concluímos que  $ (p_{n}) $ e $ (q_{n}) $ convergem. Sejam  $ p $ e $ q $ seus respectivos limites. Então $ S_{n} $ também converge. 
+\begin{center}
+$ S_{n} = p_{n} - q_{n} \Rightarrow p - q. $
+\end{center}
+\end{proof}
+
+
+\subsubsection*{Séries Alternadas e Convergência Condicional}
+
+Uma série é \textit{alternada} quando seus termos têm sinais alternadamentes positivos e negativos. Para esta série vale a recíproca do Teorema \ref{teo15}, quando o valor absoluto do termo geral tende a zero de uma sequência não-crescente, isto é,  $  a_1 \geq a_2 \geq a_3 \geq ... \geq a_n \rightarrow 0  $. O que é equivalente a o Teorema seguinte. 
+
+\begin{teo.} \textbf{(Teste de Leibniz)}
+Seja $ (a_n) $ uma sequência que tende a zera não-crescente. Então, a série alternada $ \sum (- 1)^{n + 1} a_{n} $ converge. 
+\end{teo.}
+
+\begin{exe.}
+Verificaremos se a série dada é convergente; e em caso afirmativo, se absoluta ou condicional.
+\begin{center}
+$\sum \frac{(- 1)^{n}}{n^{2}}.$
+\end{center}
+Considere $ \sum \frac{1}{n^{2}} $ que converge e é o valor absoluto da série dada. 
+Logo a série $\sum \frac{(- 1)^{n}}{n^{2}}$ converge absolutamente. Portanto a série dada converge.
+\end{exe.}
+
+\begin{exe.}
+Verificaremos se a série dada é convergente; e em caso afirmativo, se absoluta ou condicional.
+\begin{center}
+$\sum \frac{(- 1)^{n}}{n}.$
+\end{center}
+Note que quando passamos o valor absoluto na série temos que $ \sum \frac{1}{n} $ diverge e nada podemos dizer. 
+Aplicando o teste de Leibniz, temos que 
+\begin{description}
+\item a) $ \frac{1}{n} $ é decrescente;
+\item b) $ \lim_{n\rightarrow \infty} \frac{1}{n} = 0.$
+\end{description} 
+Portanto, pelo teste de Leibniz, a série $\sum (- 1)^{n} \frac{1}{n}$ converge condicionalmente.
+\end{exe.}

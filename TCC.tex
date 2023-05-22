@@ -1,0 +1,79 @@
+\documentclass[a4paper, 12pt, openany]{report}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amssymb}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage[normalem]{ulem}
+\usepackage{indentfirst}
+\usepackage{amsthm}
+%\=========================meus
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\usepackage{subeqnarray}
+\usepackage[all]{xy}
+%\=========================meus
+
+\usepackage{wrapfig}
+
+\usepackage[pdfborder=0]{hyperref}
+\hypersetup{
+    colorlinks=false,
+    linkcolor=blue,
+    citecolor=blue
+}
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\sen}{\mathop{\rm sen}\nolimits}
+
+%===================== meus
+\everymath{\displaystyle}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsthm}% para usar o comando das dem. com quadradinho preto "proof"
+%===================== meus
+
+
+\newtheorem{def.}{Definição}[chapter]
+\newtheorem{dem.}{Demonstração}[chapter] 
+\newtheorem{prop.}{Proposição}[chapter]
+\newtheorem{exe.}{Exemplo}[chapter]
+\newtheorem{obs.}{Observação}[chapter]
+\newtheorem{teo.}{Teorema}[chapter]
+\newtheorem{cor.}{Corolário}[chapter]
+\newtheorem{lem.}{Lema}[chapter]
+\newtheorem{lei.}{Lei}[chapter]
+\newtheorem{pro.}{Propriedade}[chapter]
+\newtheorem{tab.}{Tabela}[chapter]
+
+\setlength{\textwidth}{15.50cm}
+\setlength{\textheight}{24.20cm}
+\setlength{\topmargin}{-0.79cm}
+\setlength{\headheight}{0.75cm}
+\setlength{\oddsidemargin}{0.46cm}
+\setlength{\headsep}{0.50cm}
+\setlength{\parindent}{1cm}
+
+
+\pagenumbering{arabic}
+
+\begin{document}
+\include{capa}
+\include{contracapa}
+\include{faprov}
+\include{agradecimentos}
+\include{dedicatoria}
+\include{epigrafe}
+\include{resumo}
+\include{abstract}
+\setcounter{page}{8}
+\tableofcontents
+\listoffigures
+\pagestyle{headings}
+
+\include{introd}
+\include{cap0}
+\include{cap1}
+\include{cap2}
+\include{cap3}
+\include{apenda}
+\include{refer}
+\end{document}
